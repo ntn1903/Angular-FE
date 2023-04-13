@@ -9,7 +9,7 @@ const defaultConfig: Config = {
   layout: 'horizontal',
   boxed: false,
   sidenav: {
-    title: 'VEX',
+    title: 'Libary Management',
     imageUrl: 'assets/img/demo/logo.svg',
     showCollapsePin: true,
     state: 'expanded'
