@@ -15,6 +15,8 @@ import { RouterModule } from '@angular/router';
 import { NavigationItemModule } from '../../components/navigation-item/navigation-item.module';
 import { MegaMenuModule } from '../../components/mega-menu/mega-menu.module';
 import { ContainerModule } from '../../directives/container/container.module';
+import { BreadcrumbsModule } from 'src/@vex/components/breadcrumbs/breadcrumbs.module';
+import { SecondaryToolbarModule } from 'src/@vex/components/secondary-toolbar/secondary-toolbar.module';
 
 
 @NgModule({
@@ -34,7 +36,10 @@ import { ContainerModule } from '../../directives/container/container.module';
     RouterModule,
     NavigationItemModule,
     MegaMenuModule,
-    ContainerModule
+    ContainerModule,
+
+    SecondaryToolbarModule,
+    BreadcrumbsModule,
   ],
   exports: [ToolbarComponent]
 })

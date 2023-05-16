@@ -34,6 +34,14 @@ const routes: VexRoutes = [
         loadChildren: () => import('./pages/dashboards/dashboard-analytics/dashboard-analytics.module').then(m => m.DashboardAnalyticsModule),
       },
       {
+        path: 'author',
+        loadChildren: () => import('../app/features/author/author.module').then(m => m.AuthorModule),
+      },
+      {
+        path: 'book',
+        loadChildren: () => import('../app/features/book/book.module').then(m => m.BookModule),
+      },
+      {
         path: 'apps',
         children: [
           {

@@ -19,6 +19,8 @@ import { PopoverService } from '../../components/popover/popover.service';
 import { MegaMenuComponent } from '../../components/mega-menu/mega-menu.component';
 import icSearch from '@iconify/icons-ic/twotone-search';
 
+import icMoreVert from '@iconify/icons-ic/twotone-more-vert';
+
 @Component({
   selector: 'vex-toolbar',
   templateUrl: './toolbar.component.html',
@@ -31,6 +33,8 @@ export class ToolbarComponent implements OnInit {
   @Input()
   @HostBinding('class.shadow-b')
   hasShadow: boolean;
+
+  icMoreVert = icMoreVert;
 
   navigationItems = this.navigationService.items;
 
