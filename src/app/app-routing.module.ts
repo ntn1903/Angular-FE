@@ -31,7 +31,7 @@ const routes: VexRoutes = [
       },
       {
         path: '',
-        loadChildren: () => import('./pages/dashboards/dashboard-analytics/dashboard-analytics.module').then(m => m.DashboardAnalyticsModule),
+        loadChildren: () => import('./pages/dashboards/dashboard.module').then(m => m.DashboardModule),
       },
       {
         path: 'author',

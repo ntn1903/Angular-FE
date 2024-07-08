@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { DashboardAnalyticsComponent } from './dashboard-analytics.component';
+import { DashboardComponent } from './dashboard.component';
 
-describe('DashboardAnalyticsComponent', () => {
-  let component: DashboardAnalyticsComponent;
-  let fixture: ComponentFixture<DashboardAnalyticsComponent>;
+describe('DashboardComponent', () => {
+  let component: DashboardComponent;
+  let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [DashboardAnalyticsComponent]
+      declarations: [DashboardComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DashboardAnalyticsComponent);
+    fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -3,17 +3,17 @@ import icGroup from '@iconify/icons-ic/twotone-group';
 import icPageView from '@iconify/icons-ic/twotone-pageview';
 import icCloudOff from '@iconify/icons-ic/twotone-cloud-off';
 import icTimer from '@iconify/icons-ic/twotone-timer';
-import { defaultChartOptions } from '../../../../@vex/utils/default-chart-options';
-import { Order, tableSalesData } from '../../../../static-data/table-sales-data';
-import { TableColumn } from '../../../../@vex/interfaces/table-column.interface';
+import { defaultChartOptions } from '../../../@vex/utils/default-chart-options';
+import { Order, tableSalesData } from '../../../static-data/table-sales-data';
+import { TableColumn } from '../../../@vex/interfaces/table-column.interface';
 import icMoreVert from '@iconify/icons-ic/twotone-more-vert';
 
 @Component({
   selector: 'vex-dashboard-analytics',
-  templateUrl: './dashboard-analytics.component.html',
-  styleUrls: ['./dashboard-analytics.component.scss']
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardAnalyticsComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   tableColumns: TableColumn<Order>[] = [
     {
