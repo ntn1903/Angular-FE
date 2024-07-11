@@ -3,6 +3,7 @@ import { LayoutService } from '../../services/layout.service';
 import icBookmarks from '@iconify/icons-ic/twotone-bookmarks';
 import emojioneUS from '@iconify/icons-emojione/flag-for-flag-united-states';
 import emojioneDE from '@iconify/icons-emojione/flag-for-flag-germany';
+import emojioneVI from '@iconify/icons-emojione/flag-for-flag-vietnam';
 import icMenu from '@iconify/icons-ic/twotone-menu';
 import { ConfigService } from '../../services/config.service';
 import { map } from 'rxjs/operators';
@@ -47,6 +48,7 @@ export class ToolbarComponent implements OnInit {
   icBookmarks = icBookmarks;
   emojioneUS = emojioneUS;
   emojioneDE = emojioneDE;
+  emojioneVI = emojioneVI;
   icMenu = icMenu;
   icPersonAdd = icPersonAdd;
   icAssignmentTurnedIn = icAssignmentTurnedIn;

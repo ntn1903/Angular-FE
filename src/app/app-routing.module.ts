@@ -42,6 +42,10 @@ const routes: VexRoutes = [
         loadChildren: () => import('../app/features/book/book.module').then(m => m.BookModule),
       },
       {
+        path: 'product',
+        loadChildren: () => import('../app/features/product/product.module').then(m => m.ProductModule),
+      },
+      {
         path: 'apps',
         children: [
           {

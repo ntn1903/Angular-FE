@@ -9,8 +9,8 @@ const defaultConfig: Config = {
   layout: 'horizontal',
   boxed: false,
   sidenav: {
-    title: 'Libary Management',
-    imageUrl: 'assets/img/demo/logo.svg',
+    title: 'Warehouse',
+    imageUrl: 'assets/img/demo/chatbot.svg',
     showCollapsePin: true,
     state: 'expanded'
   },

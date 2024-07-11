@@ -83,7 +83,7 @@
   <span fxFlex></span>
 
   <div class="-mx-1 flex items-center">
-    <div class="px-1">
+    <!-- <div class="px-1">
       <button (click)="openSearch()" mat-icon-button type="button">
         <mat-icon [icIcon]="icSearch"></mat-icon>
       </button>
@@ -97,7 +97,7 @@
       <button (click)="openQuickpanel()" mat-icon-button type="button">
         <mat-icon [icIcon]="icBookmarks"></mat-icon>
       </button>
-    </div>
+    </div> -->
 
     <div class="px-1">
       <button [matMenuTriggerFor]="languageMenu" mat-icon-button type="button">
@@ -116,12 +116,11 @@
       </button>
 
       <button mat-menu-item>
-        <mat-icon [icIcon]="emojioneDE"></mat-icon>
-        <span>German</span>
+        <mat-icon [icIcon]="emojioneVI"></mat-icon>
+        <span>Vietnam</span>
       </button>
     </mat-menu>
   </div>
 </div>
 
-<vex-navigation *ngIf="(isVerticalLayout$ | async) && isNavbarBelowToolbar$ | async"
-                [fxHide]="mobileQuery"></vex-navigation>
+<vex-navigation *ngIf="(isVerticalLayout$ | async) && isNavbarBelowToolbar$ | async" [fxHide]="mobileQuery"></vex-navigation>

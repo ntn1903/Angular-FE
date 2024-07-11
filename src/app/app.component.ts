@@ -109,16 +109,22 @@ export class AppComponent {
         icon: icLayers,
         routerLinkActiveOptions: { exact: true }
       },
+      // {
+      //   type: 'link',
+      //   label: 'Author',
+      //   route: '/author',
+      //   icon: icLayers,
+      // },
+      // {
+      //   type: 'link',
+      //   label: 'Book',
+      //   route: '/book',
+      //   icon: icLayers,
+      // },
       {
         type: 'link',
-        label: 'Author',
-        route: '/author',
-        icon: icLayers,
-      },
-      {
-        type: 'link',
-        label: 'Book',
-        route: '/book',
+        label: 'Product',
+        route: '/product',
         icon: icLayers,
       },
       {
