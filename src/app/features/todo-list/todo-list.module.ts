@@ -18,6 +18,7 @@ import { ScrumboardDialogModule } from 'src/app/pages/apps/scrumboard/components
 import { PopoverModule } from 'src/@vex/components/popover/popover.module';
 import { ContainerModule } from 'src/@vex/directives/container/container.module';
 import { QuicklinkModule } from 'ngx-quicklink';
+import { TodoListDialogComponent } from './todo-list-dialog/todo-list-dialog.component';
 
 const routes: VexRoutes = [
   {
@@ -36,7 +37,8 @@ const routes: VexRoutes = [
 
 @NgModule({
   declarations: [
-    TodoListComponent
+    TodoListComponent,
+    TodoListDialogComponent
   ],
   imports: [
     CommonModule,
