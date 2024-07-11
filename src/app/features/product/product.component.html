@@ -1,14 +1,12 @@
+<!-- <vex-secondary-toolbar current="Product">
+    <vex-breadcrumbs [crumbs]="['Product']" class="flex-auto"></vex-breadcrumbs>
+</vex-secondary-toolbar> -->
 <vex-page-layout>
     <vex-page-layout-header class="pb-16" fxLayout="column" fxLayoutAlign="center start">
         <div [class.container]="layoutCtrl.value === 'boxed'" [class.px-gutter]="layoutCtrl.value === 'fullwidth'" class="w-full flex flex-col sm:flex-row justify-between">
-            <div>
-                <!-- <vex-breadcrumbs [crumbs]="['Product']"></vex-breadcrumbs> -->
-                <h1 class="title mt-0 mb-1">Product</h1>
-            </div>
-
             <mat-button-toggle-group [formControl]="layoutCtrl" class="mt-4 sm:mt-0">
-                <mat-button-toggle value="boxed">BOXED</mat-button-toggle>
-                <mat-button-toggle value="fullwidth">FULL-WIDTH</mat-button-toggle>
+                <mat-button-toggle value="boxed">SMALL</mat-button-toggle>
+                <mat-button-toggle value="fullwidth">LARGE</mat-button-toggle>
             </mat-button-toggle-group>
         </div>
     </vex-page-layout-header>

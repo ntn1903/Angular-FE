@@ -19,6 +19,7 @@ import { MatSelectChange } from '@angular/material/select';
 import icPhone from '@iconify/icons-ic/twotone-phone';
 import icMail from '@iconify/icons-ic/twotone-mail';
 import icMap from '@iconify/icons-ic/twotone-map';
+import icMoreVert from '@iconify/icons-ic/twotone-more-vert';
 import { TableColumn } from 'src/@vex/interfaces/table-column.interface';
 import { aioTableLabels } from 'src/static-data/aio-table-data';
 import { fadeInUp400ms } from 'src/@vex/animations/fade-in-up.animation';
@@ -77,6 +78,8 @@ export class ProductComponent implements OnInit, AfterViewInit {
   icFilterList = icFilterList;
   icMoreHoriz = icMoreHoriz;
   icFolder = icFolder;
+  icMoreVert = icMoreVert;
+
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;

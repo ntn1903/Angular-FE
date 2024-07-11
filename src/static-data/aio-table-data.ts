@@ -28,7 +28,7 @@ export const aioTableLabels = [
 export const aioTableData = [
   {
     id: 0,
-    imageSrc: 'assets/img/avatars/20.jpg',
+    imageSrc: 'assets/img/avatars/1.jpg',
     firstName: 'Dejesus',
     lastName: 'Chang',
     street: '899 Raleigh Place',
@@ -136,7 +136,7 @@ export const aioTableData = [
   },
   {
     id: 9,
-    imageSrc: 'assets/img/avatars/9.jpg',
+    imageSrc: 'assets/img/avatars/1.jpg',
     firstName: 'Rosanna',
     lastName: 'Cross',
     street: '540 Fiske Place',
@@ -148,7 +148,7 @@ export const aioTableData = [
   },
   {
     id: 10,
-    imageSrc: 'assets/img/avatars/10.jpg',
+    imageSrc: 'assets/img/avatars/1.jpg',
     firstName: 'Mary',
     lastName: 'Jane',
     street: '233 Glen Place',
@@ -160,7 +160,7 @@ export const aioTableData = [
   },
   {
     id: 11,
-    imageSrc: 'assets/img/avatars/11.jpg',
+    imageSrc: 'assets/img/avatars/1.jpg',
     firstName: 'Lane',
     lastName: 'Delaney',
     street: 'Langham Street',
@@ -172,7 +172,7 @@ export const aioTableData = [
   },
   {
     id: 12,
-    imageSrc: 'assets/img/avatars/12.jpg',
+    imageSrc: 'assets/img/avatars/1.jpg',
     firstName: 'Cooper',
     lastName: 'Odom',
     street: 'Shale Street',
@@ -184,7 +184,7 @@ export const aioTableData = [
   },
   {
     id: 13,
-    imageSrc: 'assets/img/avatars/13.jpg',
+    imageSrc: 'assets/img/avatars/1.jpg',
     firstName: 'Kirby',
     lastName: 'Hardin',
     street: 'Rodney Street',
@@ -196,7 +196,7 @@ export const aioTableData = [
   },
   {
     id: 14,
-    imageSrc: 'assets/img/avatars/14.jpg',
+    imageSrc: 'assets/img/avatars/1.jpg',
     firstName: 'Marquita',
     lastName: 'Haynes',
     street: 'Townsend Street',
@@ -208,7 +208,7 @@ export const aioTableData = [
   },
   {
     id: 15,
-    imageSrc: 'assets/img/avatars/15.jpg',
+    imageSrc: 'assets/img/avatars/1.jpg',
     firstName: 'Horton',
     lastName: 'Townsend',
     street: 'Gunnison Court',
@@ -220,7 +220,7 @@ export const aioTableData = [
   },
   {
     id: 16,
-    imageSrc: 'assets/img/avatars/16.jpg',
+    imageSrc: 'assets/img/avatars/1.jpg',
     firstName: 'Carrie',
     lastName: 'Bond',
     street: 'Bushwick Court',
@@ -232,7 +232,7 @@ export const aioTableData = [
   },
   {
     id: 17,
-    imageSrc: 'assets/img/avatars/17.jpg',
+    imageSrc: 'assets/img/avatars/1.jpg',
     firstName: 'Carroll',
     lastName: 'Pugh',
     street: 'Baltic Street',
@@ -244,7 +244,7 @@ export const aioTableData = [
   },
   {
     id: 18,
-    imageSrc: 'assets/img/avatars/18.jpg',
+    imageSrc: 'assets/img/avatars/1.jpg',
     firstName: 'Fuller',
     lastName: 'Espinoza',
     street: 'Dooley Street',
@@ -256,7 +256,7 @@ export const aioTableData = [
   },
   {
     id: 19,
-    imageSrc: 'assets/img/avatars/19.jpg',
+    imageSrc: 'assets/img/avatars/1.jpg',
     firstName: 'Lamb',
     lastName: 'Herring',
     street: 'Exeter Street',
@@ -268,7 +268,7 @@ export const aioTableData = [
   },
   {
     id: 20,
-    imageSrc: 'assets/img/avatars/20.jpg',
+    imageSrc: 'assets/img/avatars/1.jpg',
     firstName: 'Liza',
     lastName: 'Price',
     street: 'Homecrest Avenue',
@@ -376,7 +376,7 @@ export const aioTableData = [
   },
   {
     id: 29,
-    imageSrc: 'assets/img/avatars/9.jpg',
+    imageSrc: 'assets/img/avatars/8.jpg',
     firstName: 'Deborah',
     lastName: 'Weiss',
     street: 'Haring Street',
