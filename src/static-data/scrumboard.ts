@@ -10,56 +10,56 @@ export const scrumboardAttachments: ScrumboardAttachment[] = [
     id: 1,
     name: 'business-case.jpg',
     extension: 'jpg',
-    path: 'assets/img/demo/1.jpg',
+    path: 'assets/images/1.jpg',
     size: '55 KB'
   },
   {
     id: 2,
     name: 'laptop.jpg',
     extension: 'jpg',
-    path: 'assets/img/demo/2.jpg',
+    path: 'assets/images/2.jpg',
     size: '62 KB'
   },
   {
     id: 3,
     name: 'how-to.jpg',
     extension: 'jpg',
-    path: 'assets/img/demo/3.jpg',
+    path: 'assets/images/3.jpg',
     size: '35 KB'
   },
   {
     id: 4,
     name: 'workplace.jpg',
     extension: 'jpg',
-    path: 'assets/img/demo/4.jpg',
+    path: 'assets/images/4.jpg',
     size: '51 KB'
   },
   {
     id: 5,
     name: 'issue-332.jpg',
     extension: 'jpg',
-    path: 'assets/img/demo/5.jpg',
+    path: 'assets/images/5.jpg',
     size: '10 KB'
   },
   {
     id: 6,
     name: 'notebook-26.jpg',
     extension: 'jpg',
-    path: 'assets/img/demo/6.jpg',
+    path: 'assets/images/6.jpg',
     size: '48 KB'
   },
   {
     id: 7,
     name: 'business-2.jpg',
     extension: 'jpg',
-    path: 'assets/img/demo/7.jpg',
+    path: 'assets/images/7.jpg',
     size: '58 KB'
   },
   {
     id: 7,
     name: 'example-67.jpg',
     extension: 'jpg',
-    path: 'assets/img/demo/8.jpg',
+    path: 'assets/images/8.jpg',
     size: '87 KB'
   }
 ];
@@ -67,31 +67,31 @@ export const scrumboardAttachments: ScrumboardAttachment[] = [
 export const scrumboardUsers: ScrumboardUser[] = [
   {
     name: 'David Smith',
-    imageSrc: 'assets/img/avatars/1.jpg'
+    imageSrc: 'assets/images/1.jpg'
   },
   {
     name: 'Michael Bolta',
-    imageSrc: 'assets/img/avatars/2.jpg'
+    imageSrc: 'assets/images/2.jpg'
   },
   {
     name: 'Jenny Zents',
-    imageSrc: 'assets/img/avatars/3.jpg'
+    imageSrc: 'assets/images/3.jpg'
   },
   {
     name: 'Donald Orisan',
-    imageSrc: 'assets/img/avatars/4.jpg'
+    imageSrc: 'assets/images/4.jpg'
   },
   {
     name: 'Frank Uhrzeen',
-    imageSrc: 'assets/img/avatars/5.jpg'
+    imageSrc: 'assets/images/5.jpg'
   },
   {
     name: 'James Blound',
-    imageSrc: 'assets/img/avatars/6.jpg'
+    imageSrc: 'assets/images/6.jpg'
   },
   {
     name: 'Peter Moffeen',
-    imageSrc: 'assets/img/avatars/7.jpg'
+    imageSrc: 'assets/images/7.jpg'
   }
 ];
 

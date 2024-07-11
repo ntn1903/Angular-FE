@@ -10,7 +10,7 @@ const defaultConfig: Config = {
   boxed: false,
   sidenav: {
     title: 'Warehouse',
-    imageUrl: 'assets/img/avatars/chatbot.svg',
+    imageUrl: 'assets/images/chatbot.svg',
     showCollapsePin: true,
     state: 'expanded'
   },
@@ -21,7 +21,7 @@ const defaultConfig: Config = {
     position: 'below-toolbar'
   },
   footer: {
-    visible: true,
+    visible: false,
     fixed: true
   }
 };

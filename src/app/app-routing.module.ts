@@ -42,6 +42,41 @@ const routes: VexRoutes = [
         loadChildren: () => import('../app/features/customer/customer.module').then(m => m.CustomerModule),
       },
       {
+        path: 'todo-list',
+        loadChildren: () => import('../app/features/todo-list/todo-list.module').then(m => m.TodoListModule),
+      },
+      {
+        path: 'pages',
+        children: [
+          {
+            path: 'error-404',
+            loadChildren: () => import('./pages/pages/errors/error-404/error-404.module').then(m => m.Error404Module)
+          },
+          {
+            path: 'error-500',
+            loadChildren: () => import('./pages/pages/errors/error-500/error-500.module').then(m => m.Error500Module)
+          }
+        ]
+      },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {
         path: 'apps',
         children: [
           {

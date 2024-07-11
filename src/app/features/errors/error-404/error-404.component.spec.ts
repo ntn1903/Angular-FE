@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ToolbarUserDropdownComponent } from './toolbar-user-dropdown.component';
+import { Error404Component } from './error404.component';
 
-describe('ToolbarUserDropdownComponent', () => {
-  let component: ToolbarUserDropdownComponent;
-  let fixture: ComponentFixture<ToolbarUserDropdownComponent>;
+describe('Error404Component', () => {
+  let component: Error404Component;
+  let fixture: ComponentFixture<Error404Component>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ToolbarUserDropdownComponent]
+      declarations: [Error404Component]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ToolbarUserDropdownComponent);
+    fixture = TestBed.createComponent(Error404Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -118,7 +118,7 @@ export class ScrumboardDialogComponent implements OnInit {
     comments.push(new FormControl({
       from: {
         name: 'David Smith',
-        imageSrc: 'assets/img/avatars/1.jpg'
+        imageSrc: 'assets/images/1.jpg'
       },
       message: this.commentCtrl.value,
       date: DateTime.local().minus({ seconds: 1 })

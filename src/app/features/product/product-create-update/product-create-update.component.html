@@ -39,10 +39,16 @@
             <mat-icon [icIcon]="icPhone" class="mr-3" matPrefix></mat-icon>
         </mat-form-field>
 
-        <mat-radio-group aria-label="Select an option">
-            <mat-radio-button value="1">Option 1</mat-radio-button>
-            <mat-radio-button value="2">Option 2</mat-radio-button>
-        </mat-radio-group>
+        <div class="section">
+            <div class="section-content">
+                <h5 class="subheading">Status</h5>
+
+                <mat-radio-group fxLayout="row" fxLayoutGap="20px">
+                    <mat-radio-button value="fixed">Fixed</mat-radio-button>
+                    <mat-radio-button value="static">Static</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
     </mat-dialog-content>
 
     <mat-dialog-actions align="end">

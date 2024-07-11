@@ -67,7 +67,7 @@ export class ProductCreateUpdateComponent implements OnInit {
     const product = this.form.value;
 
     // if (!product.imageSrc) {
-    //   product.imageSrc = 'assets/img/avatars/1.jpg';
+    //   product.imageSrc = 'assets/images/1.jpg';
     // }
 
     this.dialogRef.close(product);

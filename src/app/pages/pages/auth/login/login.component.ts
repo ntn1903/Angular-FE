@@ -55,7 +55,9 @@ export class LoginComponent extends BaseService implements OnInit {
     // });
     this.loginService.login(this.form.value).subscribe(response => {
       if (response.isSuccess) {
+        console.log(response.data);
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('currentUser', response.data.userName);
         window.location.replace('http://localhost:4200');
       }
     })

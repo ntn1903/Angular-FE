@@ -12,7 +12,7 @@ export class ComponentsOverviewListsComponent implements OnInit {
     `<mat-list class="list mat-elevation-z1">
   <h3 mat-subheader>Contacts</h3>
   <mat-list-item>
-    <img mat-list-avatar src="assets/img/avatars/1.jpg">
+    <img mat-list-avatar src="assets/images/1.jpg">
     <h3 matLine>John</h3>
     <p matLine>
       <span>Brunch?</span>
@@ -20,7 +20,7 @@ export class ComponentsOverviewListsComponent implements OnInit {
     </p>
   </mat-list-item>
   <mat-list-item>
-    <img mat-list-avatar src="assets/img/avatars/2.jpg">
+    <img mat-list-avatar src="assets/images/2.jpg">
     <h3 matLine>Peter</h3>
     <p matLine>
       <span>Summer BBQ</span>
@@ -28,7 +28,7 @@ export class ComponentsOverviewListsComponent implements OnInit {
     </p>
   </mat-list-item>
   <mat-list-item>
-    <img mat-list-avatar src="assets/img/avatars/3.jpg">
+    <img mat-list-avatar src="assets/images/3.jpg">
     <h3 matLine>Nancy</h3>
     <p matLine>
       <span>Oui oui</span>
@@ -38,7 +38,7 @@ export class ComponentsOverviewListsComponent implements OnInit {
   <mat-divider></mat-divider>
   <h3 mat-subheader>Other</h3>
   <mat-list-item>
-    <img mat-list-avatar src="assets/img/avatars/4.jpg">
+    <img mat-list-avatar src="assets/images/4.jpg">
     <h3 matLine>Frank</h3>
     <p matLine>
       <span>Pretty decent!</span>
@@ -46,7 +46,7 @@ export class ComponentsOverviewListsComponent implements OnInit {
     </p>
   </mat-list-item>
   <mat-list-item>
-    <img mat-list-avatar src="assets/img/avatars/5.jpg">
+    <img mat-list-avatar src="assets/images/5.jpg">
     <h3 matLine>Donald</h3>
     <p matLine>
       <span>That's great!</span>

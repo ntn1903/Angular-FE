@@ -26,7 +26,7 @@ function createFakeMailAttachment(seed: number): MailAttachment {
   faker.seed(seed);
 
   const type = faker.system.commonFileExt();
-  const imgUrl = `assets/img/demo/${faker.random.number(8)}.jpg`;
+  const imgUrl = `assets/images/${faker.random.number(8)}.jpg`;
 
   return {
     label: faker.system.fileName(type),
@@ -40,7 +40,7 @@ function createFakeMail(id: number): Mail {
   const from: Mail['from'] = {
     name: faker.name.findName(),
     email: faker.internet.email(),
-    imgUrl: `assets/img/avatars/${faker.random.number({ min: 1, max: 20 })}.jpg`,
+    imgUrl: `assets/images/${faker.random.number({ min: 1, max: 20 })}.jpg`,
   };
 
   const to: Mail['to'] = {

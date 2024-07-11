@@ -12,7 +12,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { filter } from 'rxjs/operators';
-import { untilDestroyed } from '@ngneat/until-destroy';
 import { CustomerCreateUpdateComponent } from './customer-create-update/customer-create-update.component';
 import { MatSelectChange } from '@angular/material/select';
 import { BaseService } from 'src/app/base-services/base.service';
@@ -98,7 +97,6 @@ export class CustomerComponent extends BaseService implements OnInit, AfterViewI
     });
 
     this.searchCtrl.valueChanges.pipe(
-      untilDestroyed(this)
     ).subscribe(value => this.onFilterChange(value));
   }
 
