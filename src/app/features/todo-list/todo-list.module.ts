@@ -26,7 +26,7 @@ const routes: VexRoutes = [
     redirectTo: '1'
   },
   {
-    path: ':scrumboardId',
+    path: ':todoListId',
     component: TodoListComponent,
     data: {
       scrollDisabled: true,

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import icVisibility from '@iconify/icons-ic/twotone-visibility';
 import icVisibilityOff from '@iconify/icons-ic/twotone-visibility-off';
-import { fadeInUp400ms } from '../../../../../@vex/animations/fade-in-up.animation';
+import { fadeInUp400ms } from '../../../@vex/animations/fade-in-up.animation';
 import { LoginService } from './login.service';
 import { BaseService } from 'src/app/base-services/base.service';
 
@@ -35,10 +35,7 @@ export class LoginComponent extends BaseService implements OnInit {
     private loginService: LoginService
   ) {
     super();
-    this.token = localStorage.getItem('token');
-    if (!this.isNullOrEmpty(this.token)) {
-      window.location.replace('http://localhost:4200');
-    }
+    localStorage.clear();
   }
 
   ngOnInit() {
@@ -50,16 +47,15 @@ export class LoginComponent extends BaseService implements OnInit {
 
   send() {
     // this.router.navigate(['/']);
-    // this.snackbar.open('Lucky you! Looks like you didn\'t need a password or email address! For a real application we provide validators to prevent this. ;)', 'LOL THANKS', {
-    //   duration: 10000
-    // });
+    // 
+    if (this.form.invalid) return this.snackbar.open('Please, input Username and Password!', 'X', { duration: 3000 });
     this.loginService.login(this.form.value).subscribe(response => {
       if (response.isSuccess) {
-        console.log(response.data);
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('currentUser', response.data.userName);
-        window.location.replace('http://localhost:4200');
+        return window.location.replace('http://localhost:4200');
       }
+      return this.snackbar.open(response.message, 'X', { duration: 3000 });
     })
   }
 

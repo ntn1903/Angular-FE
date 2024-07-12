@@ -1,4 +1,4 @@
-import { Component, Inject, LOCALE_ID, Renderer2 } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnDestroy, Renderer2 } from '@angular/core';
 import { ConfigService } from '../@vex/services/config.service';
 import { Settings } from 'luxon';
 import { DOCUMENT } from '@angular/common';
@@ -41,45 +41,25 @@ import icMail from '@iconify/icons-ic/twotone-mail';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   title = 'vex';
 
   constructor(private configService: ConfigService,
-              private styleService: StyleService,
-              private renderer: Renderer2,
-              private platform: Platform,
-              @Inject(DOCUMENT) private document: Document,
-              @Inject(LOCALE_ID) private localeId: string,
-              private layoutService: LayoutService,
-              private route: ActivatedRoute,
-              private navigationService: NavigationService,
-              private splashScreenService: SplashScreenService) {
+    private styleService: StyleService,
+    private renderer: Renderer2,
+    private platform: Platform,
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(LOCALE_ID) private localeId: string,
+    private layoutService: LayoutService,
+    private route: ActivatedRoute,
+    private navigationService: NavigationService,
+    private splashScreenService: SplashScreenService) {
     Settings.defaultLocale = this.localeId;
 
     if (this.platform.BLINK) {
       this.renderer.addClass(this.document.body, 'is-blink');
     }
 
-    /**
-     * Customize the template to your needs with the ConfigService
-     * Example:
-     *  this.configService.updateConfig({
-     *    sidenav: {
-     *      title: 'Custom App',
-     *      imageUrl: '//placehold.it/100x100',
-     *      showCollapsePin: false
-     *    },
-     *    footer: {
-     *      visible: false
-     *    }
-     *  });
-     */
-
-    /**
-     * Config Related Subscriptions
-     * You can remove this if you don't need the functionality of being able to enable specific configs with queryParams
-     * Example: example.com/?layout=apollo&style=default
-     */
     this.route.queryParamMap.pipe(
       filter(queryParamMap => queryParamMap.has('rtl')),
       map(queryParamMap => coerceBooleanProperty(queryParamMap.get('rtl'))),
@@ -102,6 +82,28 @@ export class AppComponent {
      * Add your own routes here
      */
     this.navigationService.items = [
+      {
+        type: 'dropdown',
+        label: 'Authentication',
+        icon: icLock,
+        children: [
+          {
+            type: 'link',
+            label: 'Login',
+            route: '/login'
+          },
+          {
+            type: 'link',
+            label: 'Register',
+            route: '/register'
+          },
+          {
+            type: 'link',
+            label: 'Forgot Password',
+            route: '/forgot-password'
+          }
+        ]
+      },
       {
         type: 'link',
         label: 'Dashboard',
@@ -134,7 +136,7 @@ export class AppComponent {
       },
       {
         type: 'dropdown',
-        label: 'Errors',
+        label: 'Pages',
         icon: icError,
         badge: {
           value: '4',
@@ -151,22 +153,15 @@ export class AppComponent {
             type: 'link',
             label: '500',
             route: '/pages/error-500'
-          }
+          },
+          {
+            type: 'link',
+            label: 'Coming Soon',
+            icon: icWatchLater,
+            route: '/coming-soon'
+          },
         ]
       },
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       {
         type: 'subheading',
@@ -291,56 +286,8 @@ export class AppComponent {
         type: 'subheading',
         label: 'Pages',
         children: [
-          {
-            type: 'dropdown',
-            label: 'Authentication',
-            icon: icLock,
-            children: [
-              {
-                type: 'link',
-                label: 'Login',
-                route: '/login'
-              },
-              {
-                type: 'link',
-                label: 'Register',
-                route: '/register'
-              },
-              {
-                type: 'link',
-                label: 'Forgot Password',
-                route: '/forgot-password'
-              }
-            ]
-          },
-          {
-            type: 'link',
-            label: 'Coming Soon',
-            icon: icWatchLater,
-            route: '/coming-soon'
-          },
-          {
-            type: 'dropdown',
-            label: 'Errors',
-            icon: icError,
-            badge: {
-              value: '4',
-              bgClass: 'bg-green',
-              textClass: 'text-green-contrast',
-            },
-            children: [
-              {
-                type: 'link',
-                label: '404',
-                route: '/pages/error-404'
-              },
-              {
-                type: 'link',
-                label: '500',
-                route: '/pages/error-500'
-              }
-            ]
-          },
+
+
           {
             type: 'link',
             label: 'Pricing',
@@ -687,5 +634,8 @@ export class AppComponent {
         icon: icSettings
       }
     ];
+  }
+  ngOnDestroy(): void {
+    localStorage.clear();
   }
 }

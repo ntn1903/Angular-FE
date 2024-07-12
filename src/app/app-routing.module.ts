@@ -4,22 +4,22 @@ import { CustomLayoutComponent } from './custom-layout/custom-layout.component';
 import { VexRoutes } from '../@vex/interfaces/vex-route.interface';
 import { QuicklinkModule, QuicklinkStrategy } from 'ngx-quicklink';
 
-const routes: VexRoutes = [
+export const routes: VexRoutes = [
   {
     path: 'login',
-    loadChildren: () => import('./pages/pages/auth/login/login.module').then(m => m.LoginModule),
+    loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule),
   },
   {
     path: 'register',
-    loadChildren: () => import('./pages/pages/auth/register/register.module').then(m => m.RegisterModule),
+    loadChildren: () => import('./auth/register/register.module').then(m => m.RegisterModule),
   },
   {
     path: 'forgot-password',
-    loadChildren: () => import('./pages/pages/auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule),
+    loadChildren: () => import('./auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule),
   },
   {
     path: 'coming-soon',
-    loadChildren: () => import('./pages/pages/coming-soon/coming-soon.module').then(m => m.ComingSoonModule),
+    loadChildren: () => import('./features/errors/coming-soon/coming-soon.module').then(m => m.ComingSoonModule),
   },
   {
     path: '',
@@ -31,7 +31,7 @@ const routes: VexRoutes = [
       },
       {
         path: '',
-        loadChildren: () => import('./pages/dashboards/dashboard.module').then(m => m.DashboardModule),
+        loadChildren: () => import('./features/dashboards/dashboard.module').then(m => m.DashboardModule),
       },
       {
         path: 'product',
@@ -50,30 +50,14 @@ const routes: VexRoutes = [
         children: [
           {
             path: 'error-404',
-            loadChildren: () => import('./pages/pages/errors/error-404/error-404.module').then(m => m.Error404Module)
+            loadChildren: () => import('./features/pages/error-404/error-404.module').then(m => m.Error404Module)
           },
           {
             path: 'error-500',
-            loadChildren: () => import('./pages/pages/errors/error-500/error-500.module').then(m => m.Error500Module)
+            loadChildren: () => import('./features/pages/error-500/error-500.module').then(m => m.Error500Module)
           }
         ]
       },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
       {
@@ -146,14 +130,6 @@ const routes: VexRoutes = [
             path: 'invoice',
             loadChildren: () => import('./pages/pages/invoice/invoice.module').then(m => m.InvoiceModule)
           },
-          {
-            path: 'error-404',
-            loadChildren: () => import('./pages/pages/errors/error-404/error-404.module').then(m => m.Error404Module)
-          },
-          {
-            path: 'error-500',
-            loadChildren: () => import('./pages/pages/errors/error-500/error-500.module').then(m => m.Error500Module)
-          }
         ]
       },
       {
@@ -193,7 +169,7 @@ const routes: VexRoutes = [
       },
       {
         path: '**',
-        loadChildren: () => import('./pages/pages/errors/error-404/error-404.module').then(m => m.Error404Module)
+        loadChildren: () => import('./features/pages/error-404/error-404.module').then(m => m.Error404Module)
       }
     ]
   }

@@ -124,7 +124,6 @@ export class ToolbarUserDropdownComponent implements OnInit {
   }
 
   close() {
-    localStorage.clear();
     this.popoverRef.close();
   }
 }

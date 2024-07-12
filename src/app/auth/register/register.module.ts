@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -11,13 +10,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { IconModule } from '@visurel/iconify-angular';
+import { RouterModule, Routes } from '@angular/router';
+import { QuicklinkModule } from 'ngx-quicklink';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: RegisterComponent
+  }
+];
 
 @NgModule({
   declarations: [RegisterComponent],
   imports: [
     CommonModule,
-    RegisterRoutingModule,
+    RouterModule.forChild(routes),
     FlexLayoutModule,
     ReactiveFormsModule,
     MatInputModule,
@@ -26,7 +33,8 @@ import { IconModule } from '@visurel/iconify-angular';
     MatTooltipModule,
     MatCheckboxModule,
     IconModule
-  ]
+  ],
+  exports: [RouterModule, QuicklinkModule]
 })
 export class RegisterModule {
 }

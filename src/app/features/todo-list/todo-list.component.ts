@@ -36,8 +36,8 @@ export class TodoListComponent implements OnInit {
   static nextId = 100;
 
   board$ = this.route.paramMap.pipe(
-    map(paramMap => +paramMap.get('scrumboardId')),
-    map(scrumboardId => scrumboards.find(board => board.id === scrumboardId))
+    map(paramMap => +paramMap.get('todoListId')),
+    map(todoListId => scrumboards.find(board => board.id === todoListId))
   );
 
   addCardCtrl = new FormControl();

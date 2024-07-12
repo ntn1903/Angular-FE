@@ -7,13 +7,14 @@ import { defaultChartOptions } from '../../../@vex/utils/default-chart-options';
 import { Order, tableSalesData } from '../../../static-data/table-sales-data';
 import { TableColumn } from '../../../@vex/interfaces/table-column.interface';
 import icMoreVert from '@iconify/icons-ic/twotone-more-vert';
+import { BaseService } from 'src/app/base-services/base.service';
 
 @Component({
   selector: 'vex-dashboard-analytics',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent extends BaseService implements OnInit {
 
   tableColumns: TableColumn<Order>[] = [
     {
@@ -86,7 +87,11 @@ export class DashboardComponent implements OnInit {
   icTimer = icTimer;
   icMoreVert = icMoreVert;
 
-  constructor(private cd: ChangeDetectorRef) { }
+  constructor(private cd: ChangeDetectorRef) {
+    super();
+    if (this.isNullOrEmpty(localStorage.getItem('token')))
+      window.location.replace('http://localhost:4200/login');
+  }
 
   ngOnInit() {
     setTimeout(() => {

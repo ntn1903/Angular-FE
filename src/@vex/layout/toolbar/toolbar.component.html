@@ -12,7 +12,7 @@
     <h1 [fxHide]="mobileQuery" class="title ltr:pl-4 rtl:pr-4 m-0 select-none">VEX</h1>
   </a>
 
-  <button *ngIf="isHorizontalLayout$ | async"
+  <!-- <button *ngIf="isHorizontalLayout$ | async"
           [fxHide]="mobileQuery"
           [matMenuTriggerFor]="addNewMenu"
           color="primary"
@@ -68,7 +68,7 @@
             type="button">MEGA MENU
       <ic-icon [icon]="icArrowDropDown" class="ltr:-mr-1 rtl:-ml-1" inline="true"></ic-icon>
     </button>
-  </div>
+  </div> -->
 
 
   <div *ngIf="(isVerticalLayout$ | async) && isNavbarInToolbar$ | async"

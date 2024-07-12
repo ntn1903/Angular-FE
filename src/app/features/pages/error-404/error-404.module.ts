@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { Error500Component } from './error-500.component';
+import { Error404Component } from '../../pages/error-404/error-404.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { IconModule } from '@visurel/iconify-angular';
 import { VexRoutes } from 'src/@vex/interfaces/vex-route.interface';
@@ -11,7 +11,7 @@ import { QuicklinkModule } from 'ngx-quicklink';
 const routes: VexRoutes = [
   {
     path: '',
-    component: Error500Component,
+    component: Error404Component,
     data: {
       containerEnabled: true,
       toolbarShadowEnabled: true
@@ -20,7 +20,7 @@ const routes: VexRoutes = [
 ];
 
 @NgModule({
-  declarations: [Error500Component],
+  declarations: [Error404Component],
   imports: [
     CommonModule,
     FlexLayoutModule,
@@ -29,5 +29,5 @@ const routes: VexRoutes = [
   ],
   exports: [RouterModule, QuicklinkModule]
 })
-export class Error500Module {
+export class Error404Module {
 }

@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import icCheckCircle from '@iconify/icons-ic/twotone-check-circle';
+import { BaseService } from 'src/app/base-services/base.service';
 
 @Component({
   selector: 'vex-widget-assistant',
   templateUrl: './widget-assistant.component.html',
   styleUrls: ['./widget-assistant.component.scss']
 })
-export class WidgetAssistantComponent implements OnInit {
+export class WidgetAssistantComponent extends BaseService implements OnInit {
+  constructor() { super(); }
 
-  icCheckCircle = icCheckCircle;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

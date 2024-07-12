@@ -9,6 +9,21 @@ import icDelete from '@iconify/icons-ic/twotone-delete';
 import icSearch from '@iconify/icons-ic/twotone-search';
 import icAdd from '@iconify/icons-ic/twotone-add';
 import icFilterList from '@iconify/icons-ic/twotone-filter-list';
+import icBookmarks from '@iconify/icons-ic/twotone-bookmarks';
+import emojioneUS from '@iconify/icons-emojione/flag-for-flag-united-states';
+import emojioneDE from '@iconify/icons-emojione/flag-for-flag-germany';
+import emojioneVI from '@iconify/icons-emojione/flag-for-flag-vietnam';
+import icMenu from '@iconify/icons-ic/twotone-menu';
+import icPersonAdd from '@iconify/icons-ic/twotone-person-add';
+import icAssignmentTurnedIn from '@iconify/icons-ic/twotone-assignment-turned-in';
+import icBallot from '@iconify/icons-ic/twotone-ballot';
+import icDescription from '@iconify/icons-ic/twotone-description';
+import icAssignment from '@iconify/icons-ic/twotone-assignment';
+import icReceipt from '@iconify/icons-ic/twotone-receipt';
+import icDoneAll from '@iconify/icons-ic/twotone-done-all';
+import icArrowDropDown from '@iconify/icons-ic/twotone-arrow-drop-down';
+import icMoreVert from '@iconify/icons-ic/twotone-more-vert';
+import icCheckCircle from '@iconify/icons-ic/twotone-check-circle';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +41,25 @@ export class BaseService {
   icFilterList = icFilterList;
   icMoreHoriz = icMoreHoriz;
   icFolder = icFolder;
+  icMoreVert = icMoreVert;
+  icBookmarks = icBookmarks;
+  emojioneUS = emojioneUS;
+  emojioneDE = emojioneDE;
+  emojioneVI = emojioneVI;
+  icMenu = icMenu;
+  icPersonAdd = icPersonAdd;
+  icAssignmentTurnedIn = icAssignmentTurnedIn;
+  icBallot = icBallot;
+  icDescription = icDescription;
+  icAssignment = icAssignment;
+  icReceipt = icReceipt;
+  icDoneAll = icDoneAll;
+  icArrowDropDown = icArrowDropDown;
+  icCheckCircle = icCheckCircle;
 
-  constructor() { }
+  currentUser: string = "";
+
+  constructor() { this.currentUser = localStorage.getItem('currentUser'); }
 
   isNullOrEmpty(input: string | null) {
     return input?.trim().length === 0 || input === null;
