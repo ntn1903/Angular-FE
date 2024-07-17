@@ -1,0 +1,48 @@
+<div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
+    <h2 *ngIf="mode=='update'" class="headline m-0" fxFlex="auto">Update</h2>
+    <h2 *ngIf="mode=='create'" class="headline m-0" fxFlex="auto">Create</h2>
+
+    <button *ngIf="mode=='update'" [matMenuTriggerFor]="settingsMenu" class="text-secondary" mat-icon-button
+        type="button">
+        <mat-icon [icIcon]="icMoreVert"></mat-icon>
+    </button>
+
+    <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
+        <mat-icon [icIcon]="icClose"></mat-icon>
+    </button>
+</div>
+
+<mat-divider class="-mx-6 text-border"></mat-divider>
+
+<mat-dialog-content fxLayout="column">
+    <div class="flex flex-col sm:flex-row" fxLayoutGap="20px">
+        <wms-input class="flex-auto" [label]="'Name'" [(ngModel)]="defaults.name" [icon]="icAdd"></wms-input>
+        <wms-input [label]="'Unit'" [(ngModel)]="defaults.phone" [icon]="icAdd"></wms-input>
+
+    </div>
+
+    <wms-input class="flex-auto" [label]="'Quantity'" [(ngModel)]="defaults.address" [icon]="icAdd"></wms-input>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close type="button">CANCEL</button>
+    <button *ngIf="isCreateMode()" color="primary" mat-button type="submit">CREATE CUSTOMER</button>
+    <button *ngIf="isUpdateMode()" color="primary" mat-button type="submit">UPDATE CUSTOMER</button>
+</mat-dialog-actions>
+
+<mat-menu #settingsMenu="matMenu" xPosition="before" yPosition="below">
+    <button mat-menu-item>
+        <mat-icon [icIcon]="icPrint"></mat-icon>
+        <span>Print</span>
+    </button>
+
+    <button mat-menu-item>
+        <mat-icon [icIcon]="icDownload"></mat-icon>
+        <span>Export</span>
+    </button>
+
+    <button mat-menu-item>
+        <mat-icon [icIcon]="icDelete"></mat-icon>
+        <span>Delete</span>
+    </button>
+</mat-menu>

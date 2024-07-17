@@ -1,0 +1,9 @@
+<mat-form-field [floatLabel]="floatLabel" [hideRequiredMarker]="hideRequiredMarker">
+    <mat-label *ngIf="label">{{label}} </mat-label>
+    <input matInput [type]="type" [(ngModel)]="value" [required]="required" [disabled]="disabled"
+        [readonly]="readonly" [maxlength]="maxlength" [placeholder]="placeholder" [name]="name"
+        [ngClass]="type=='number'? 'text-right': ''" onClick="this.select();" ngDefaultControl>
+    <span *ngIf="matSuffix != ''" matSuffix>{{matSuffix}}</span>
+    <mat-icon [icIcon]="icon" class="mr-3" matPrefix></mat-icon>
+    <mat-error>{{ (errorMsg || requiredMsg) }}</mat-error>
+</mat-form-field>

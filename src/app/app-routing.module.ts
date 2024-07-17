@@ -17,10 +17,7 @@ export const routes: VexRoutes = [
     path: 'forgot-password',
     loadChildren: () => import('./auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule),
   },
-  {
-    path: 'coming-soon',
-    loadChildren: () => import('./features/errors/coming-soon/coming-soon.module').then(m => m.ComingSoonModule),
-  },
+  
   {
     path: '',
     component: CustomLayoutComponent,
@@ -55,8 +52,17 @@ export const routes: VexRoutes = [
           {
             path: 'error-500',
             loadChildren: () => import('./features/pages/error-500/error-500.module').then(m => m.Error500Module)
-          }
+          },
+          {
+            path: 'coming-soon',
+            loadChildren: () => import('./features/pages/coming-soon/coming-soon.module').then(m => m.ComingSoonModule),
+          },
         ]
+      },
+
+      {
+        path: 'project',
+        loadChildren: () => import('../app/features/project/project.module').then(m => m.ProjectModule),
       },
 
 

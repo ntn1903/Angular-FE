@@ -1,35 +1,36 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Product } from '../product.component';
 import { BaseService } from 'src/app/base-services/base.service';
+import { Project } from '../project.component';
 
 @Component({
-  selector: 'vex-product-create-update',
-  templateUrl: './product-create-update.component.html',
-  styleUrls: ['./product-create-update.component.scss']
+  selector: 'vex-popup-create-update-project',
+  templateUrl: './popup-create-update-project.component.html',
+  styleUrls: ['./popup-create-update-project.component.scss']
 })
-export class ProductCreateUpdateComponent extends BaseService implements OnInit {
+export class PopupCreateUpdateProjectComponent extends BaseService implements OnInit {
   static id = 100;
 
-  form: FormGroup; 
+  form: FormGroup;
   mode: 'create' | 'update' = 'create';
-
+  data: any;
   constructor(@Inject(MAT_DIALOG_DATA) public defaults: any,
-    private dialogRef: MatDialogRef<ProductCreateUpdateComponent>,
+    private dialogRef: MatDialogRef<PopupCreateUpdateProjectComponent>,
     private fb: FormBuilder) {
-      super()
+    super();
+    this.data = 'Nguyen';
   }
 
   ngOnInit() {
     if (this.defaults) {
       this.mode = 'update';
     } else {
-      this.defaults = {} as Product;
+      this.defaults = {} as Project;
     }
 
     this.form = this.fb.group({
-      id: [ProductCreateUpdateComponent.id++],
+      id: [PopupCreateUpdateProjectComponent.id++],
       name: this.defaults.name || '',
       unit: this.defaults.unit || '',
       quantity: this.defaults.quantity || '',

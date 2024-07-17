@@ -1,24 +1,25 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Product } from '../product.component';
 import { BaseService } from 'src/app/base-services/base.service';
+import { ProductCreateUpdateComponent } from 'src/app/features/product/product-create-update/product-create-update.component';
+import { Product } from 'src/app/features/product/product.component';
 
 @Component({
-  selector: 'vex-product-create-update',
-  templateUrl: './product-create-update.component.html',
-  styleUrls: ['./product-create-update.component.scss']
+  selector: 'vex-dialog',
+  templateUrl: './dialog.component.html',
+  styleUrls: ['./dialog.component.scss']
 })
-export class ProductCreateUpdateComponent extends BaseService implements OnInit {
+export class DialogComponent extends BaseService implements OnInit {
   static id = 100;
 
-  form: FormGroup; 
+  form: FormGroup;
   mode: 'create' | 'update' = 'create';
 
   constructor(@Inject(MAT_DIALOG_DATA) public defaults: any,
     private dialogRef: MatDialogRef<ProductCreateUpdateComponent>,
     private fb: FormBuilder) {
-      super()
+    super();
   }
 
   ngOnInit() {

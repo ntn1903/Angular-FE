@@ -158,9 +158,16 @@ export class AppComponent implements OnDestroy {
             type: 'link',
             label: 'Coming Soon',
             icon: icWatchLater,
-            route: '/coming-soon'
+            route: '/pages/coming-soon'
           },
         ]
+      },
+
+      {
+        type: 'link',
+        label: 'Project',
+        route: '/project',
+        icon: icLayers,
       },
 
       {

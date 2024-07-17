@@ -10,7 +10,7 @@ const defaultConfig: Config = {
   boxed: false,
   sidenav: {
     title: 'Warehouse',
-    imageUrl: 'assets/images/chatbot.svg',
+    imageUrl: 'assets/images/logo.png',
     showCollapsePin: true,
     state: 'expanded'
   },

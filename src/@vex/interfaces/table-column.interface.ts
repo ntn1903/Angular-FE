@@ -1,7 +1,8 @@
 export interface TableColumn<T> {
   label: string;
   property: keyof T | string;
-  type: 'text' | 'image' | 'badge' | 'progress' | 'checkbox' | 'button' | 'number';
+  type: 'text' | 'image' | 'index' | 'checkbox' | 'status' | 'button' | 'date' | 'datetime' | 'number' | 'badge' | 'date' | 'datetime';
   visible?: boolean;
   cssClasses?: string[];
+  buttons?: ('view' | 'edit' | 'delete')[];
 }

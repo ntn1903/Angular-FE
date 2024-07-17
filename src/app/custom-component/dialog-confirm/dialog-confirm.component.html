@@ -1,0 +1,16 @@
+<div mat-dialog-title>
+    <h3>Confirm dialog</h3>
+</div>
+
+<mat-divider class="-mx-6 text-border"></mat-divider>
+
+<mat-dialog-content fxLayout="column">
+    <div class="flex flex-col sm:flex-row">
+        <p>{{defaults}}</p>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button color="warn" (click)="dialogRef.close('Y')">{{'Yes' | uppercase}}</button>
+    <button mat-button mat-dialog-close>{{'No' | uppercase}}</button>
+</mat-dialog-actions>

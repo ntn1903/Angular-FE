@@ -5,27 +5,16 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
-import icEdit from '@iconify/icons-ic/twotone-edit';
-import icDelete from '@iconify/icons-ic/twotone-delete';
-import icSearch from '@iconify/icons-ic/twotone-search';
-import icAdd from '@iconify/icons-ic/twotone-add';
-import icFilterList from '@iconify/icons-ic/twotone-filter-list';
 import { SelectionModel } from '@angular/cdk/collections';
-import icMoreHoriz from '@iconify/icons-ic/twotone-more-horiz';
-import icFolder from '@iconify/icons-ic/twotone-folder';
 import { FormControl } from '@angular/forms';
-import { untilDestroyed } from '@ngneat/until-destroy';
 import { MatSelectChange } from '@angular/material/select';
-import icPhone from '@iconify/icons-ic/twotone-phone';
-import icMail from '@iconify/icons-ic/twotone-mail';
-import icMap from '@iconify/icons-ic/twotone-map';
-import icMoreVert from '@iconify/icons-ic/twotone-more-vert';
 import { TableColumn } from 'src/@vex/interfaces/table-column.interface';
 import { aioTableLabels } from 'src/static-data/aio-table-data';
 import { fadeInUp400ms } from 'src/@vex/animations/fade-in-up.animation';
 import { stagger40ms } from 'src/@vex/animations/stagger.animation';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@angular/material/form-field';
 import { ProductCreateUpdateComponent } from './product-create-update/product-create-update.component';
+import { BaseService } from 'src/app/base-services/base.service';
 
 @Component({
   selector: 'vex-product',
@@ -44,7 +33,7 @@ import { ProductCreateUpdateComponent } from './product-create-update/product-cr
     }
   ]
 })
-export class ProductComponent implements OnInit, AfterViewInit {
+export class ProductComponent extends BaseService implements OnInit, AfterViewInit {
   layoutCtrl = new FormControl('boxed');
   subject$: ReplaySubject<Product[]> = new ReplaySubject<Product[]>(1);
   data$: Observable<Product[]> = this.subject$.asObservable();
@@ -68,23 +57,13 @@ export class ProductComponent implements OnInit, AfterViewInit {
 
   labels = aioTableLabels;
 
-  icPhone = icPhone;
-  icMail = icMail;
-  icMap = icMap;
-  icEdit = icEdit;
-  icSearch = icSearch;
-  icDelete = icDelete;
-  icAdd = icAdd;
-  icFilterList = icFilterList;
-  icMoreHoriz = icMoreHoriz;
-  icFolder = icFolder;
-  icMoreVert = icMoreVert;
-
+ 
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(private dialog: MatDialog) {
+    super();
   }
 
   get visibleColumns() {
@@ -128,13 +107,13 @@ export class ProductComponent implements OnInit, AfterViewInit {
     });
   }
 
-  updateProduct(customer: Product) {
+  updateProduct(prod: Product) {
     this.dialog.open(ProductCreateUpdateComponent, {
-      data: customer,
-    }).afterClosed().subscribe(updatedCustomer => {
-      if (updatedCustomer) {
-        const index = this.products.findIndex((existingCustomer) => existingCustomer.id === updatedCustomer.id);
-        this.products[index] = new Product(updatedCustomer);
+      data: prod,
+    }).afterClosed().subscribe(updatedProduct => {
+      if (updatedProduct) {
+        const index = this.products.findIndex((existingCustomer) => existingCustomer.id === updatedProduct.id);
+        this.products[index] = new Product(updatedProduct);
         this.subject$.next(this.products);
       }
     });
