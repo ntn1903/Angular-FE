@@ -1,17 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { InvoiceRoutingModule } from './invoice-routing.module';
 import { InvoiceComponent } from './invoice.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { IconModule } from '@visurel/iconify-angular';
+import { VexRoutes } from 'src/@vex/interfaces/vex-route.interface';
+import { RouterModule } from '@angular/router';
 
+const routes: VexRoutes = [
+  {
+    path: '',
+    component: InvoiceComponent,
+    data: {
+      toolbarShadowEnabled: true,
+      containerEnabled: true
+    }
+  }
+];
 
 @NgModule({
   declarations: [InvoiceComponent],
   imports: [
     CommonModule,
-    InvoiceRoutingModule,
+    RouterModule.forChild(routes),
     FlexLayoutModule,
     IconModule
   ]

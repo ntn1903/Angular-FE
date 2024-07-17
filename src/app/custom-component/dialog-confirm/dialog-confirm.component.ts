@@ -9,12 +9,14 @@ import { BaseService } from 'src/app/base-services/base.service';
 })
 export class DialogConfirmComponent extends BaseService implements OnInit {
   constructor(
-    @Inject(MAT_DIALOG_DATA) public defaults: any,
+    @Inject(MAT_DIALOG_DATA) public message: string,
     public dialogRef: MatDialogRef<DialogConfirmComponent>,
-  ) { super(); }
-  
-  ngOnInit(): void {
-    this.dialogRef.disableClose = true;
+  ) {
+    super();
   }
 
+  ngOnInit(): void {
+    this.dialogRef.disableClose = true;
+    this.dialogRef.updateSize('25%', '20%');
+  }
 }

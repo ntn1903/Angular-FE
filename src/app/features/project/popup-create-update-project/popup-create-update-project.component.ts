@@ -14,12 +14,11 @@ export class PopupCreateUpdateProjectComponent extends BaseService implements On
 
   form: FormGroup;
   mode: 'create' | 'update' = 'create';
-  data: any;
+
   constructor(@Inject(MAT_DIALOG_DATA) public defaults: any,
     private dialogRef: MatDialogRef<PopupCreateUpdateProjectComponent>,
     private fb: FormBuilder) {
     super();
-    this.data = 'Nguyen';
   }
 
   ngOnInit() {
@@ -47,11 +46,6 @@ export class PopupCreateUpdateProjectComponent extends BaseService implements On
 
   createProduct() {
     const product = this.form.value;
-
-    // if (!product.imageSrc) {
-    //   product.imageSrc = 'assets/images/1.jpg';
-    // }
-
     this.dialogRef.close(product);
   }
 

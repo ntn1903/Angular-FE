@@ -27,6 +27,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDividerModule } from '@angular/material/divider';
 import { SecondaryToolbarModule } from 'src/@vex/components/secondary-toolbar/secondary-toolbar.module';
 import { TableModule } from 'src/app/custom-component/table/table.module';
+import { InputModule } from 'src/app/custom-component/input/input.module';
 
 const routes: VexRoutes = [
   {
@@ -65,7 +66,8 @@ const routes: VexRoutes = [
     MatRadioModule,
     MatDividerModule,
     SecondaryToolbarModule,
-    TableModule
+    TableModule,
+    InputModule,
   ],
   exports: [RouterModule, QuicklinkModule]
 })

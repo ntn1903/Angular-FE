@@ -82,34 +82,24 @@ export class AppComponent implements OnDestroy {
      * Add your own routes here
      */
     this.navigationService.items = [
-      {
-        type: 'dropdown',
-        label: 'Authentication',
-        icon: icLock,
-        children: [
-          {
-            type: 'link',
-            label: 'Login',
-            route: '/login'
-          },
-          {
-            type: 'link',
-            label: 'Register',
-            route: '/register'
-          },
-          {
-            type: 'link',
-            label: 'Forgot Password',
-            route: '/forgot-password'
-          }
-        ]
-      },
+
       {
         type: 'link',
         label: 'Dashboard',
         route: '/',
         icon: icLayers,
         routerLinkActiveOptions: { exact: true }
+      },
+      {
+        type: 'link',
+        label: 'TODO list',
+        route: '/todo-list',
+        icon: icLayers,
+        badge: {
+          value: 'NEW',
+          bgClass: 'bg-primary',
+          textClass: 'text-primary-contrast',
+        }
       },
       {
         type: 'link',
@@ -125,50 +115,100 @@ export class AppComponent implements OnDestroy {
       },
       {
         type: 'link',
-        label: 'TODO list',
-        route: '/todo-list',
-        icon: icLayers,
-        badge: {
-          value: 'NEW',
-          bgClass: 'bg-primary',
-          textClass: 'text-primary-contrast',
-        }
-      },
-      {
-        type: 'dropdown',
-        label: 'Pages',
-        icon: icError,
-        badge: {
-          value: '4',
-          bgClass: 'bg-green',
-          textClass: 'text-green-contrast',
-        },
-        children: [
-          {
-            type: 'link',
-            label: '404',
-            route: '/pages/error-404'
-          },
-          {
-            type: 'link',
-            label: '500',
-            route: '/pages/error-500'
-          },
-          {
-            type: 'link',
-            label: 'Coming Soon',
-            icon: icWatchLater,
-            route: '/pages/coming-soon'
-          },
-        ]
-      },
-
-      {
-        type: 'link',
         label: 'Project',
         route: '/project',
         icon: icLayers,
       },
+      {
+        type: 'link',
+        label: 'Invoice',
+        icon: icReceipt,
+        route: '/invoice'
+      },
+      // {
+      //   type: 'link',
+      //   label: 'Guides',
+      //   icon: icBook,
+      //   route: '/guides',
+      //   badge: {
+      //     value: '18',
+      //     bgClass: 'bg-teal',
+      //     textClass: 'text-teal-contrast',
+      //   },
+      // },
+
+
+
+
+
+
+      {
+        type: 'subheading',
+        label: 'Setting',
+        children: [
+          {
+            type: 'link',
+            label: 'Configuration',
+            route: () => this.layoutService.openConfigpanel(),
+            icon: icSettings
+          },
+          {
+            type: 'dropdown',
+            label: 'Authentication',
+            icon: icLock,
+            children: [
+              {
+                type: 'link',
+                label: 'Login',
+                route: '/login'
+              },
+              {
+                type: 'link',
+                label: 'Register',
+                route: '/register'
+              },
+              {
+                type: 'link',
+                label: 'Forgot Password',
+                route: '/forgot-password'
+              }
+            ]
+          },
+          {
+            type: 'dropdown',
+            label: 'Pages',
+            icon: icError,
+            badge: {
+              value: '4',
+              bgClass: 'bg-green',
+              textClass: 'text-green-contrast',
+            },
+            children: [
+              {
+                type: 'link',
+                label: '404',
+                route: '/pages/error-404'
+              },
+              {
+                type: 'link',
+                label: '500',
+                route: '/pages/error-500'
+              },
+              {
+                type: 'link',
+                label: 'Coming Soon',
+                icon: icWatchLater,
+                route: '/pages/coming-soon'
+              },
+            ]
+          },
+        ]
+      },
+
+
+
+
+
 
       {
         type: 'subheading',
@@ -200,11 +240,7 @@ export class AppComponent implements OnDestroy {
                 label: 'FAQ',
                 route: '/apps/help-center/faq'
               },
-              {
-                type: 'link',
-                label: 'Guides',
-                route: '/apps/help-center/guides'
-              }
+              
             ]
           },
           {
@@ -303,26 +339,9 @@ export class AppComponent implements OnDestroy {
           },
           {
             type: 'link',
-            label: 'Invoice',
-            icon: icReceipt,
-            route: '/pages/invoice'
-          },
-          {
-            type: 'link',
             label: 'FAQ',
             icon: icHelp,
             route: '/pages/faq'
-          },
-          {
-            type: 'link',
-            label: 'Guides',
-            icon: icBook,
-            route: '/pages/guides',
-            badge: {
-              value: '18',
-              bgClass: 'bg-teal',
-              textClass: 'text-teal-contrast',
-            },
           },
         ]
       },
@@ -629,17 +648,7 @@ export class AppComponent implements OnDestroy {
       //     },
       //   ]
       // },
-      {
-        type: 'subheading',
-        label: 'Customize',
-        children: []
-      },
-      {
-        type: 'link',
-        label: 'Configuration',
-        route: () => this.layoutService.openConfigpanel(),
-        icon: icSettings
-      }
+
     ];
   }
   ngOnDestroy(): void {

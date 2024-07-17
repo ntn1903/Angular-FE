@@ -64,6 +64,22 @@ export const routes: VexRoutes = [
         path: 'project',
         loadChildren: () => import('../app/features/project/project.module').then(m => m.ProjectModule),
       },
+      {
+        path: 'invoice',
+        loadChildren: () => import('./features/invoice/invoice.module').then(m => m.InvoiceModule)
+      },
+
+      {
+        path: 'guides',
+        loadChildren: () => import('./features/guides/guides.module').then(m => m.GuidesModule)
+      },
+
+
+
+
+
+
+
 
 
       {
@@ -128,14 +144,7 @@ export const routes: VexRoutes = [
             path: 'faq',
             loadChildren: () => import('./pages/pages/faq/faq.module').then(m => m.FaqModule)
           },
-          {
-            path: 'guides',
-            loadChildren: () => import('./pages/pages/guides/guides.module').then(m => m.GuidesModule)
-          },
-          {
-            path: 'invoice',
-            loadChildren: () => import('./pages/pages/invoice/invoice.module').then(m => m.InvoiceModule)
-          },
+          
         ]
       },
       {

@@ -57,7 +57,7 @@ export class ProductComponent extends BaseService implements OnInit, AfterViewIn
 
   labels = aioTableLabels;
 
- 
+
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -164,6 +164,34 @@ export class ProductComponent extends BaseService implements OnInit, AfterViewIn
     const index = this.products.findIndex(c => c === row);
     this.products[index].labels = change.value;
     this.subject$.next(this.products);
+  }
+
+  onCreate() {
+    this.dialog.open(ProductCreateUpdateComponent).afterClosed().subscribe((product: Product) => {
+
+    });
+  }
+
+  onUpdate(prod: Product) {
+    this.dialog.open(ProductCreateUpdateComponent, {
+      data: prod,
+    }).afterClosed().subscribe((product: Product) => {
+
+    });
+    // this.dialog.open(ProductCreateUpdateComponent, {
+    //   data: project,
+    // }).afterClosed().subscribe(updatedProduct => {
+    //   // if (updatedProduct) {
+    //   //   const index = this.projects.findIndex((existingCustomer) => existingCustomer.id === updatedProduct.id);
+    //   //   this.projects[index] = new Product(updatedProduct);
+    //   //   this.subject$.next(this.projects);
+    //   // }
+    // });
+  }
+  onDetail(prod: Product) {
+  }
+  onDelete(prod: Product) {
+    this.products = this.products.filter(m => m.id != prod.id);
   }
 }
 

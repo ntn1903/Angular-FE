@@ -1,12 +1,12 @@
 <div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
-    <!-- <img *ngIf="form.get('name').value" [src]="form.get('name').value" class="avatar mr-5"> -->
-    <h2 *ngIf="form.get('name').value || form.get('name').value" class="headline m-0" fxFlex="auto">{{
-        form.get('name').value}}</h2>
-    <h2 *ngIf="!form.get('name').value" class="headline m-0" fxFlex="auto">New Product</h2>
-    <button *ngIf="form.get('name').value" [matMenuTriggerFor]="settingsMenu" class="text-secondary" mat-icon-button
+    <h2 *ngIf="mode=='update'" class="headline m-0" fxFlex="auto">Update</h2>
+    <h2 *ngIf="mode=='create'" class="headline m-0" fxFlex="auto">Create</h2>
+
+    <button *ngIf="mode=='update'" [matMenuTriggerFor]="settingsMenu" class="text-secondary" mat-icon-button
         type="button">
         <mat-icon [icIcon]="icMoreVert"></mat-icon>
     </button>
+
     <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
         <mat-icon [icIcon]="icClose"></mat-icon>
     </button>
@@ -15,40 +15,18 @@
 <mat-divider class="-mx-6 text-border"></mat-divider>
 
 <mat-dialog-content fxLayout="column">
-    <div class="flex flex-col sm:flex-row">
-        <mat-form-field class="mt-6 flex-auto">
-            <mat-label>Name</mat-label>
-            <input cdkFocusInitial formControlName="name" matInput>
-
-            <mat-icon [icIcon]="icPerson" class="mr-3" matPrefix></mat-icon>
-        </mat-form-field>
-
-        <mat-form-field class="sm:mt-6 sm:ml-6 flex-auto">
-            <mat-label>Unit</mat-label>
-            <input cdkFocusInitial formControlName="unit" matInput>
-
-            <mat-icon [icIcon]="icPerson" class="mr-3" matPrefix></mat-icon>
-        </mat-form-field>
+    <div class="flex flex-col sm:flex-row" fxLayoutGap="20px">
+        <wms-input [label]="'Name'" [(ngModel)]="defaults.name" [icon]="icAdd"></wms-input>
+        <wms-input [label]="'Unit'" [(ngModel)]="defaults.unit" [icon]="icAdd"></wms-input>
     </div>
 
-    
-
-    <div class="section">
-        <div class="section-content">
-            <h5 class="subheading">Status</h5>
-
-            <mat-radio-group fxLayout="row" fxLayoutGap="20px">
-                <mat-radio-button value="fixed">Fixed</mat-radio-button>
-                <mat-radio-button value="static">Static</mat-radio-button>
-            </mat-radio-group>
-        </div>
-    </div>
+    <wms-input [label]="'Quantity'" [(ngModel)]="defaults.quantity" [icon]="icAdd"></wms-input>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close type="button">CANCEL</button>
-    <button *ngIf="isCreateMode()" color="primary" mat-button type="submit">CREATE PRODUCT</button>
-    <button *ngIf="isUpdateMode()" color="primary" mat-button type="submit">UPDATE PRODUCT</button>
+    <button *ngIf="isCreateMode()" color="primary" mat-button type="submit">CREATE CUSTOMER</button>
+    <button *ngIf="isUpdateMode()" color="primary" mat-button type="submit">UPDATE CUSTOMER</button>
 </mat-dialog-actions>
 
 <mat-menu #settingsMenu="matMenu" xPosition="before" yPosition="below">

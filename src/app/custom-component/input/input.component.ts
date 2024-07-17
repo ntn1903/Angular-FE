@@ -29,7 +29,7 @@ export class InputComponent extends BaseControl implements OnInit, MatFormFieldC
   @Input() label: string;
   @Input() name: string;
   @Input() readonly: boolean = false;
-  @Input() type: 'text' | 'number' | 'password' = 'text';
+  @Input() type: 'text' | 'number' | 'password' | 'search' = 'text';
   @Input() requiredMsg: string = "Required.";
   @Input() maxlength: number = 250;
   @Input() errorMsg: string;

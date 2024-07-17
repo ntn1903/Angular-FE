@@ -194,24 +194,63 @@
             </ng-container> -->
             <ng-container matColumnDef="actions">
                 <th *matHeaderCellDef mat-header-cell mat-sort-header></th>
-                <!-- <td *matCellDef="let row" class="w-10 text-secondary" mat-cell>
-                    <button (click)="$event.stopPropagation()" [matMenuTriggerData]="{ product: row }"
-                        [matMenuTriggerFor]="actionsMenu" mat-icon-button type="button">
-                        <mat-icon [icIcon]="icMoreHoriz"></mat-icon>
-                    </button>
-                </td> -->
                 <td *matCellDef="let row" mat-cell [ngStyle]="{width: '10%'}">
-                    <button mat-icon-button type="button" (click)="onDetail.emit">
-                        <mat-icon [icIcon]="icInfo" matTooltip="Detail"></mat-icon>
+                    <button mat-icon-button type="button" (click)="onDetail.emit(row)">
+                        <mat-icon style="color: darkgreen;" [icIcon]="icInfo" matTooltip="Detail" size="23"></mat-icon>
                     </button>
                     <button mat-icon-button type="button" (click)="onUpdate.emit(row)">
-                        <mat-icon [icIcon]="icEdit" matTooltip="Edit"></mat-icon>
+                        <mat-icon style="color: chocolate;" [icIcon]="icEdit" matTooltip="Edit" size="23"></mat-icon>
                     </button>
                     <button mat-icon-button type="button" (click)="handleOnDelete(row)">
-                        <mat-icon [icIcon]="icDelete" matTooltip="Delete"></mat-icon>
+                        <mat-icon style="color: crimson;" [icIcon]="icDelete" matTooltip="Delete" size="23"></mat-icon>
                     </button>
+                    <!-- <div class="flex">
+                        <a (click)="onDetail.emit(row)"
+                            class="w-8 h-8 leading-none flex items-center justify-center hover:bg-hover text-primary bg-primary-light"
+                            mat-icon-button>
+                            <mat-icon style="color: darkgreen;" [icIcon]="icInfo" matTooltip="Detail" size="19"></mat-icon>
+                        </a>
+
+                        <a (click)="onUpdate.emit(row)"
+                            class="w-8 h-8 leading-none flex items-center justify-center ml-1 hover:bg-hover text-teal bg-teal-light"
+                            mat-icon-button>
+                            <mat-icon style="color: chocolate;" [icIcon]="icEdit" matTooltip="Edit" size="19"></mat-icon>
+                        </a>
+
+                        <a (click)="handleOnDelete(row)"
+                            class="w-8 h-8 leading-none flex items-center justify-center ml-1 hover:bg-hover text-green bg-green-light"
+                            mat-icon-button>
+                            <mat-icon style="color: crimson;" [icIcon]="icDelete" matTooltip="Delete" size="19"></mat-icon>
+                        </a>
+                    </div> -->
                 </td>
 
+            </ng-container>
+
+            <!-- Contact Column -->
+            <ng-container matColumnDef="contact">
+                <th *matHeaderCellDef mat-header-cell mat-sort-header></th>
+                <td *matCellDef="let row" mat-cell>
+                    <div class="flex">
+                        <a (click)="$event.stopPropagation()"
+                            class="w-8 h-8 leading-none flex items-center justify-center hover:bg-hover text-primary bg-primary-light"
+                            mat-icon-button>
+                            <mat-icon [icIcon]="icPhone" size="18px"></mat-icon>
+                        </a>
+
+                        <a (click)="$event.stopPropagation()"
+                            class="w-8 h-8 leading-none flex items-center justify-center ml-1 hover:bg-hover text-teal bg-teal-light"
+                            mat-icon-button>
+                            <mat-icon [icIcon]="icMail" size="18px"></mat-icon>
+                        </a>
+
+                        <a (click)="$event.stopPropagation()"
+                            class="w-8 h-8 leading-none flex items-center justify-center ml-1 hover:bg-hover text-green bg-green-light"
+                            mat-icon-button>
+                            <mat-icon [icIcon]="icMap" size="18px"></mat-icon>
+                        </a>
+                    </div>
+                </td>
             </ng-container>
 
             <!-- Status Columns -->
@@ -234,7 +273,6 @@
             <tr *matHeaderRowDef="visibleColumns" mat-header-row></tr>
             <tr *matRowDef="let row; columns: visibleColumns;" @fadeInUp
                 class="hover:bg-hover trans-ease-out cursor-pointer" mat-row></tr>
-            <!-- <tr *matRowDef="let row; columns: visibleColumns" mat-row (click)="handleRowClick(row)"></tr> -->
             <tr *matNoDataRow style="text-align: center; height: 52px;">
                 <td [attr.colspan]="visibleColumns.length">No record.</td>
             </tr>

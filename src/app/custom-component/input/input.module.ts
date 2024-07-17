@@ -10,6 +10,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { PageLayoutModule } from 'src/@vex/components/page-layout/page-layout.module';
 import { ContainerModule } from 'src/@vex/directives/container/container.module';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -26,7 +27,8 @@ import { MatDividerModule } from '@angular/material/divider';
     FlexLayoutModule,
     PageLayoutModule,
     ContainerModule,
-    MatDividerModule
+    MatDividerModule,
+    MatButtonModule
   ], 
   exports: [InputComponent],
 })

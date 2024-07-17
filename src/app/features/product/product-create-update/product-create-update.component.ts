@@ -12,13 +12,13 @@ import { BaseService } from 'src/app/base-services/base.service';
 export class ProductCreateUpdateComponent extends BaseService implements OnInit {
   static id = 100;
 
-  form: FormGroup; 
+  form: FormGroup;
   mode: 'create' | 'update' = 'create';
 
   constructor(@Inject(MAT_DIALOG_DATA) public defaults: any,
     private dialogRef: MatDialogRef<ProductCreateUpdateComponent>,
     private fb: FormBuilder) {
-      super()
+    super();
   }
 
   ngOnInit() {
@@ -46,11 +46,6 @@ export class ProductCreateUpdateComponent extends BaseService implements OnInit 
 
   createProduct() {
     const product = this.form.value;
-
-    // if (!product.imageSrc) {
-    //   product.imageSrc = 'assets/images/1.jpg';
-    // }
-
     this.dialogRef.close(product);
   }
 

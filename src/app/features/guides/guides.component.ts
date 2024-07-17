@@ -5,11 +5,11 @@ import icMail from '@iconify/icons-ic/twotone-mail';
 import icDescription from '@iconify/icons-ic/twotone-description';
 import icMovieFilter from '@iconify/icons-ic/twotone-movie-filter';
 import { MatDialog } from '@angular/material/dialog';
-import { HelpCenterGuidesGuideComponent } from '../../apps/help-center/help-center-guides/help-center-guides-guide/help-center-guides-guide.component';
-import { Guide, GuideCategory } from '../../apps/help-center/help-center-guides/help-center-guides.component';
-import { trackById } from '../../../../@vex/utils/track-by';
-import { stagger60ms } from '../../../../@vex/animations/stagger.animation';
-import { fadeInUp400ms } from '../../../../@vex/animations/fade-in-up.animation';
+import { HelpCenterGuidesGuideComponent } from '../../pages/apps/help-center/help-center-guides/help-center-guides-guide/help-center-guides-guide.component';
+import { Guide, GuideCategory } from '../../pages/apps/help-center/help-center-guides/help-center-guides.component';
+import { trackById } from '../../../@vex/utils/track-by';
+import { stagger60ms } from '../../../@vex/animations/stagger.animation';
+import { fadeInUp400ms } from '../../../@vex/animations/fade-in-up.animation';
 
 @Component({
   selector: 'vex-guides',

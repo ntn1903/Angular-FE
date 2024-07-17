@@ -1,9 +1,20 @@
 <mat-form-field [floatLabel]="floatLabel" [hideRequiredMarker]="hideRequiredMarker">
     <mat-label *ngIf="label">{{label}} </mat-label>
-    <input matInput [type]="type" [(ngModel)]="value" [required]="required" [disabled]="disabled"
-        [readonly]="readonly" [maxlength]="maxlength" [placeholder]="placeholder" [name]="name"
-        [ngClass]="type=='number'? 'text-right': ''" onClick="this.select();" ngDefaultControl>
+    <input matInput [type]="type" [(ngModel)]="value" [required]="required" [disabled]="disabled" [readonly]="readonly"
+        [maxlength]="maxlength" [placeholder]="placeholder" [name]="name" [ngClass]="type=='number'? 'text-right': ''"
+        onClick="this.select();" ngDefaultControl>
     <span *ngIf="matSuffix != ''" matSuffix>{{matSuffix}}</span>
     <mat-icon [icIcon]="icon" class="mr-3" matPrefix></mat-icon>
     <mat-error>{{ (errorMsg || requiredMsg) }}</mat-error>
 </mat-form-field>
+<ng-container [ngSwitch]="type">
+    <ng-container *ngSwitchCase="'search'">
+        <div @fadeInUp class="border rounded-full bg-card py-2 pl-6 pr-3 text-secondary max-w-xl mx-auto shadow-8"
+            fxLayout="row" fxLayoutAlign="start center">
+            <ic-icon fxFlex="none" size="24px"></ic-icon>
+            <input class="border-0 ml-4 placeholder:text-secondary subheading-2 outline-none font-medium w-0 bg-card"
+                fxFlex="auto" placeholder="Search" type="text">
+            <button class="rounded-full" color="primary" fxFlex="none" mat-raised-button type="button">SEARCH</button>
+        </div>
+    </ng-container>
+</ng-container>
