@@ -173,7 +173,7 @@ export const contactsData: Contact[] = [
   },
   {
     id: 18,
-    imageSrc: 'assets/images/18.jpg',
+    imageSrc: 'assets/images/8.jpg',
     name: 'Jimmie Clements',
     phone: '+34 (946) 451-3718',
     company: 'Sarasonic',
@@ -183,7 +183,7 @@ export const contactsData: Contact[] = [
   },
   {
     id: 19,
-    imageSrc: 'assets/images/19.jpg',
+    imageSrc: 'assets/images/9.jpg',
     name: 'Kasey Rosa',
     phone: '+44 (910) 404-3456',
     company: 'Cytrak',
@@ -193,7 +193,7 @@ export const contactsData: Contact[] = [
   },
   {
     id: 20,
-    imageSrc: 'assets/images/20.jpg',
+    imageSrc: 'assets/images/2.jpg',
     name: 'Emily Schneider',
     phone: '+40 (870) 564-3250',
     company: 'Noralex',
@@ -203,7 +203,7 @@ export const contactsData: Contact[] = [
   },
   {
     id: 21,
-    imageSrc: 'assets/images/20.jpg',
+    imageSrc: 'assets/images/2.jpg',
     name: 'Lara Witt',
     phone: '+29 (971) 550-3793',
     company: 'Moltonic',
@@ -213,7 +213,7 @@ export const contactsData: Contact[] = [
   },
   {
     id: 22,
-    imageSrc: 'assets/images/19.jpg',
+    imageSrc: 'assets/images/9.jpg',
     name: 'Hebert Bailey',
     phone: '+4 (884) 527-3408',
     company: 'Homelux',
@@ -223,7 +223,7 @@ export const contactsData: Contact[] = [
   },
   {
     id: 23,
-    imageSrc: 'assets/images/18.jpg',
+    imageSrc: 'assets/images/8.jpg',
     name: 'Lynda Garza',
     phone: '+44 (872) 404-3519',
     company: 'Quonk',
@@ -233,7 +233,7 @@ export const contactsData: Contact[] = [
   },
   {
     id: 24,
-    imageSrc: 'assets/images/17.jpg',
+    imageSrc: 'assets/images/7.jpg',
     name: 'Stark Fitzgerald',
     phone: '+7 (999) 438-2471',
     company: 'Farmage',

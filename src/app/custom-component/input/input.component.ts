@@ -7,11 +7,14 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { BaseControl } from 'src/app/base-services/base-control';
+import { fadeInUp400ms } from 'src/@vex/animations/fade-in-up.animation';
+import { stagger40ms } from 'src/@vex/animations/stagger.animation';
 
 @Component({
   selector: 'wms-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
+  animations: [fadeInUp400ms, stagger40ms],
   providers: [
     {
       provide: MatFormFieldControl,

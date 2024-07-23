@@ -24,14 +24,6 @@ import { BaseService } from 'src/app/base-services/base.service';
     fadeInUp400ms,
     stagger40ms
   ],
-  providers: [
-    {
-      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
-      useValue: {
-        appearance: 'standard'
-      } as MatFormFieldDefaultOptions
-    }
-  ]
 })
 export class ProductComponent extends BaseService implements OnInit, AfterViewInit {
   layoutCtrl = new FormControl('boxed');

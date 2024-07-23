@@ -2,7 +2,7 @@ import { AfterViewInit, Component, EventEmitter, Input, OnChanges, Output, Simpl
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@angular/material/form-field';
 import { SelectionModel } from '@angular/cdk/collections';
 import { AppConsts } from 'src/app/base-services/app.contanst';
 import { BaseService } from 'src/app/base-services/base.service';
@@ -20,6 +20,14 @@ import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.compone
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   animations: [fadeInUp400ms, stagger40ms],
+  providers: [
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: {
+        appearance: 'standard'
+      } as MatFormFieldDefaultOptions
+    }
+  ]
 })
 export class TableComponent extends BaseService implements AfterViewInit, OnChanges {
   @Input() columns: TableColumn<any>[] = [];

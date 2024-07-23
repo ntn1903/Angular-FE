@@ -28,14 +28,13 @@ import { MatDividerModule } from '@angular/material/divider';
 import { SecondaryToolbarModule } from 'src/@vex/components/secondary-toolbar/secondary-toolbar.module';
 import { TableModule } from 'src/app/custom-component/table/table.module';
 import { InputModule } from 'src/app/custom-component/input/input.module';
+import { AuthGuardService } from 'src/app/base-services/guard';
 
 const routes: VexRoutes = [
   {
     path: '',
     component: ProductComponent,
-    data: {
-      toolbarShadowEnabled: false
-    }
+    data: { toolbarShadowEnabled: false },
   }
 ];
 
@@ -69,6 +68,5 @@ const routes: VexRoutes = [
     TableModule,
     InputModule,
   ],
-  exports: [RouterModule, QuicklinkModule]
 })
 export class ProductModule { }
