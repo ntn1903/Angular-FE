@@ -7,6 +7,7 @@ import { BaseService } from 'src/app/base-services/base.service';
   styleUrls: ['./widget-assistant.component.scss']
 })
 export class WidgetAssistantComponent extends BaseService implements OnInit {
+  currentUser = localStorage.getItem('currentUser');
   constructor() { super(); }
 
   ngOnInit() { }

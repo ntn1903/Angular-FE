@@ -178,6 +178,14 @@
                 </ng-container>
             </ng-container>
 
+            <!-- Datetime Columns -->
+            <ng-container *ngFor="let column of columns; trackBy: trackByProperty">
+                <ng-container *ngIf="column.type === 'datetime'" [matColumnDef]="column.property">
+                    <th *matHeaderCellDef class="uppercase" mat-header-cell mat-sort-header> {{ column.label }}</th>
+                    <td *matCellDef="let row" [ngClass]="column.cssClasses" mat-cell>{{ row[column.property] | date : 'YYYY-MM-dd HH:mm:ss' }}</td>
+                </ng-container>
+            </ng-container>
+
             <!-- Action Column -->
             <!-- <ng-container *ngFor="let column of columns; trackBy: trackByProperty">
                 <ng-container *ngIf="column.type === 'button'" [matColumnDef]="column.property">

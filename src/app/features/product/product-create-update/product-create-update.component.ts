@@ -15,7 +15,8 @@ export class ProductCreateUpdateComponent extends BaseService implements OnInit 
   form: FormGroup;
   mode: 'create' | 'update' = 'create';
 
-  constructor(@Inject(MAT_DIALOG_DATA) public defaults: any,
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public defaults: any,
     private dialogRef: MatDialogRef<ProductCreateUpdateComponent>,
     private fb: FormBuilder) {
     super();

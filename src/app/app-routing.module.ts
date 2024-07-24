@@ -25,12 +25,12 @@ export const routes: VexRoutes = [
     canActivate:[AuthGuardService],
     children: [
       {
-        path: 'dashboards/analytics',
-        redirectTo: '/'
+        path: 'dashboard',
+        loadChildren: () => import('./features/dashboards/dashboard.module').then(m => m.DashboardModule),
       },
       {
-        path: '',
-        loadChildren: () => import('./features/dashboards/dashboard.module').then(m => m.DashboardModule),
+        path: 'category',
+        loadChildren: () => import('../app/features/category/category.module').then(m => m.CategoryModule),
       },
       {
         path: 'product',

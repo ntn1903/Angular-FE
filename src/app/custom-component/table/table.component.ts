@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -14,6 +14,8 @@ import { stagger40ms } from 'src/@vex/animations/stagger.animation';
 import { TableColumn } from 'src/@vex/interfaces/table-column.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.component';
+import { Observable, of, ReplaySubject } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'wms-table',
@@ -29,7 +31,7 @@ import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.compone
     }
   ]
 })
-export class TableComponent extends BaseService implements AfterViewInit, OnChanges {
+export class TableComponent extends BaseService implements OnInit, AfterViewInit, OnChanges {
   @Input() columns: TableColumn<any>[] = [];
   @Input() data: any[] = [];
   @Input() isShowFilterColumns: boolean = true;
@@ -43,17 +45,24 @@ export class TableComponent extends BaseService implements AfterViewInit, OnChan
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
+  // subject$: ReplaySubject<any[]> = new ReplaySubject<any[]>(1);
+  // data$: Observable<any[]> = this.subject$.asObservable();
+
   dataSource: MatTableDataSource<any>;
   searchValue: string = "";
 
   PAGE_SIZE_DEFAULT: number = AppConsts.PAGE_SIZE_DEFAULT;
-  PAGE_SIZE_OPTIONS: number[] = [5, 10, 25, 100];
+  PAGE_SIZE_OPTIONS: number[] = [1, 5, 10, 25, 100];
 
   layoutCtrl = new FormControl('boxed'); //fullwidth
 
   constructor(private dialog: MatDialog) {
     super();
-    this.dataSource = new MatTableDataSource(this.data as any[]);
+  }
+
+
+  ngOnInit(): void {
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -69,8 +78,10 @@ export class TableComponent extends BaseService implements AfterViewInit, OnChan
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    setTimeout(() => {
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    }, 0);
   }
 
   applyFilter(event: Event) {

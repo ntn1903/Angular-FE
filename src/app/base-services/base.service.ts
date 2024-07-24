@@ -34,12 +34,16 @@ import icEditLocation from '@iconify/icons-ic/twotone-edit-location';
 import icPageView from '@iconify/icons-ic/pageview';
 import icInfo from '@iconify/icons-ic/twotone-info';
 import icStorage from '@iconify/icons-ic/storage';
+import icBusiness from '@iconify/icons-ic/twotone-business';
+import { ResponseModel } from '../models/response-model.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
   _SELECTED_ITEM: any;
+  // _toastrService: ToastrService;
 
   icPhone = icPhone;
   icMail = icMail;
@@ -76,16 +80,25 @@ export class BaseService {
   icPageView = icPageView;
   icInfo = icInfo;
   icStorage = icStorage;
+  icBusiness = icBusiness;
 
+  constructor() { }
 
-
-  currentUser: string = "";
-
-  constructor() { this.currentUser = localStorage.getItem('currentUser'); }
-
-  isNullOrEmpty(input: string | null) {
+  isNullOrEmpty(input: string) {
     return input?.trim().length === 0 || input === null;
   }
+
+  isUndefined(input: any) {
+    return input == undefined || input === undefined || input == 'undefined' || input === 'undefined';
+  }
+
+  // showResponseMessage(res: ResponseModel) {
+  //   if (res.isSuccess) {
+  //     this._toastrService.success(res.message, 'Action successfully');
+  //   } else {
+  //     this._toastrService.error(res.message, 'Action failed');
+  //   }
+  // }
 
   // fileToPdf(file: AttachmentFileModel) {
   //   let byteCharacters = atob(file.attachment).split('').map(c => c.charCodeAt(0));

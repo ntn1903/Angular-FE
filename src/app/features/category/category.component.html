@@ -1,0 +1,11 @@
+<wms-table 
+    [columns]="columns" 
+    [data]="categories"
+    (onCreate)="onCreateUpdateCategory($event)"
+    (onUpdate)="onCreateUpdateCategory($event)"
+></wms-table>
+<!-- 
+(onCreate)="onCreate()"
+(onUpdate)="onUpdate($event)"
+(onDetail)="onDetail($event)"
+(onDelete)="onDelete($event)" -->

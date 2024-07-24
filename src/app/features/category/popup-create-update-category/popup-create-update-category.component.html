@@ -1,0 +1,53 @@
+<div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
+    <h2 class="headline m-0" fxFlex="auto">{{mode == 'create' ? 'CREATE' : 'UPDATE'}}</h2>
+
+    <button *ngIf="mode=='update'" [matMenuTriggerFor]="settingsMenu" class="text-secondary" mat-icon-button
+        type="button">
+        <mat-icon [icIcon]="icMoreVert"></mat-icon>
+    </button>
+
+    <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
+        <mat-icon [icIcon]="icClose"></mat-icon>
+    </button>
+</div>
+
+<mat-divider class="-mx-6 text-border"></mat-divider>
+
+<mat-dialog-content fxLayout="column">
+    <div class="flex flex-col sm:flex-row" fxLayoutGap="20px">
+        <wms-input [label]="'Name'" [(ngModel)]="receivedData.name" [icon]="icAdd"></wms-input>
+        <wms-input [label]="'Description'" [(ngModel)]="receivedData.description" [icon]="icAdd"></wms-input>
+    </div>
+    <div class="flex flex-col sm:flex-row" fxLayoutGap="20px">
+        <!-- <wms-input [label]="'Created At'" [(ngModel)]="receivedData.createdAt" [icon]="icAdd"></wms-input> -->
+        <mat-form-field>
+            <mat-label>Birthday</mat-label>
+            <input [matDatepicker]="datepickerRef" matInput [(ngModel)]="receivedData.createdAt">
+            <mat-datepicker-toggle [for]="datepickerRef" class="block" matPrefix></mat-datepicker-toggle>
+            <mat-datepicker #datepickerRef></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close type="button">CANCEL</button>
+    <button color="primary" mat-button (click)="onUpdate()">{{mode == 'create' ? 'CREATE' : 'UPDATE'}}</button>
+</mat-dialog-actions>
+
+<mat-menu #settingsMenu="matMenu" xPosition="before" yPosition="below">
+    <button mat-menu-item>
+        <mat-icon [icIcon]="icPrint"></mat-icon>
+        <span>Print</span>
+    </button>
+
+    <button mat-menu-item>
+        <mat-icon [icIcon]="icDownload"></mat-icon>
+        <span>Export</span>
+    </button>
+
+    <button mat-menu-item>
+        <mat-icon [icIcon]="icDelete"></mat-icon>
+        <span>Delete</span>
+    </button>
+</mat-menu>

@@ -86,7 +86,7 @@ export class AppComponent implements OnDestroy {
       {
         type: 'link',
         label: 'Dashboard',
-        route: '/',
+        route: '/dashboard',
         icon: icLayers,
         routerLinkActiveOptions: { exact: true }
       },
@@ -100,6 +100,12 @@ export class AppComponent implements OnDestroy {
           bgClass: 'bg-primary',
           textClass: 'text-primary-contrast',
         }
+      },
+      {
+        type: 'link',
+        label: 'Category',
+        route: '/category',
+        icon: icLayers,
       },
       {
         type: 'link',

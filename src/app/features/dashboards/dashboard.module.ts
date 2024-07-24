@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { DashboardRoutingModule } from './dashboard-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartModule } from '../../../@vex/components/chart/chart.module';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,13 +17,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { PageLayoutModule } from '../../../@vex/components/page-layout/page-layout.module';
 import { ContainerModule } from '../../../@vex/directives/container/container.module';
 import { DashboardComponent } from './dashboard.component';
+import { RouterModule, Routes } from '@angular/router';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: DashboardComponent
+  }
+];
 
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
     CommonModule,
-    DashboardRoutingModule,
+    RouterModule.forChild(routes),
     FlexLayoutModule,
     ChartModule,
     MatIconModule,
