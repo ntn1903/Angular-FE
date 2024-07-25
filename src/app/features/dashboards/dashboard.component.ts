@@ -7,7 +7,7 @@ import { defaultChartOptions } from '../../../@vex/utils/default-chart-options';
 import { Order, tableSalesData } from '../../../static-data/table-sales-data';
 import { TableColumn } from '../../../@vex/interfaces/table-column.interface';
 import icMoreVert from '@iconify/icons-ic/twotone-more-vert';
-import { BaseService } from 'src/app/base-services/base.service';
+import { BaseService } from 'src/app/base/base.service';
 
 @Component({
   selector: 'vex-dashboard-analytics',

@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { BaseService } from 'src/app/base-services/base.service';
+import { BaseService } from 'src/app/base/base.service';
 import { Category } from 'src/app/models/category/category.model';
 import { CategoryApiService } from '../category-api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';

@@ -17,7 +17,7 @@ import { BreadcrumbsModule } from "src/@vex/components/breadcrumbs/breadcrumbs.m
 import { PageLayoutModule } from "src/@vex/components/page-layout/page-layout.module";
 import { ContainerModule } from "src/@vex/directives/container/container.module";
 import { TableComponent } from "./table.component";
-import { TransformDataTable } from "src/app/base-services/transform-data-table";
+import { TransformDataTable } from "src/app/base/transform-data-table";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { InputModule } from "../input/input.module";
 import { MatTooltipModule } from "@angular/material/tooltip";

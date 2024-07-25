@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule, ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { ThemePalette } from '@angular/material/core';
-import { LoaderService } from 'src/app/base-services/loader.service';
+import { LoaderService } from 'src/app/base/loader.service';
 
 @Component({
   selector: 'vex-loader',

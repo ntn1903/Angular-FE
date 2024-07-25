@@ -14,7 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { filter } from 'rxjs/operators';
 import { CustomerCreateUpdateComponent } from './customer-create-update/customer-create-update.component';
 import { MatSelectChange } from '@angular/material/select';
-import { BaseService } from 'src/app/base-services/base.service';
+import { BaseService } from 'src/app/base/base.service';
 
 @Component({
   selector: 'vex-customer',

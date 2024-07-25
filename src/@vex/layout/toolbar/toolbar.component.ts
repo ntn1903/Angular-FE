@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { NavigationService } from '../../services/navigation.service';
 import { PopoverService } from '../../components/popover/popover.service';
 import { MegaMenuComponent } from '../../components/mega-menu/mega-menu.component';
-import { BaseService } from 'src/app/base-services/base.service';
+import { BaseService } from 'src/app/base/base.service';
 
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseService } from 'src/app/base-services/base.service';
+import { BaseService } from 'src/app/base/base.service';
 
 @Component({
   selector: 'vex-widget-assistant',

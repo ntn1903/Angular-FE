@@ -1,0 +1,9 @@
+<mat-form-field [floatLabel]="floatLabel" [hideRequiredMarker]="hideRequiredMarker">
+    <mat-label *ngIf="label">{{label}} </mat-label>
+    <input matInput [matDatepicker]="datepickerRef" [name]="name" [(ngModel)]="value" [required]="required"
+        [disabled]="disabled" [readonly]="readonly" ngDefaultControl>
+    <mat-hint>YYYY-MM-DD</mat-hint>
+    <mat-datepicker-toggle [for]="datepickerRef" matPrefix></mat-datepicker-toggle> 
+    <!-- matSuffix -->
+    <mat-datepicker #datepickerRef></mat-datepicker>
+</mat-form-field>

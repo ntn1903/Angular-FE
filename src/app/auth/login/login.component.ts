@@ -6,7 +6,7 @@ import icVisibility from '@iconify/icons-ic/twotone-visibility';
 import icVisibilityOff from '@iconify/icons-ic/twotone-visibility-off';
 import { fadeInUp400ms } from '../../../@vex/animations/fade-in-up.animation';
 import { LoginService } from './login.service';
-import { BaseService } from 'src/app/base-services/base.service';
+import { BaseService } from 'src/app/base/base.service';
 
 @Component({
   selector: 'vex-login',

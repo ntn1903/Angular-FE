@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fadeInUp400ms } from '../../../@vex/animations/fade-in-up.animation';
-import { BaseService } from 'src/app/base-services/base.service';
+import { BaseService } from 'src/app/base/base.service';
 
 @Component({
   selector: 'vex-invoice',

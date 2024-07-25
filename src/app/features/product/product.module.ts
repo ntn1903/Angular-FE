@@ -28,7 +28,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { SecondaryToolbarModule } from 'src/@vex/components/secondary-toolbar/secondary-toolbar.module';
 import { TableModule } from 'src/app/custom-component/table/table.module';
 import { InputModule } from 'src/app/custom-component/input/input.module';
-import { AuthGuardService } from 'src/app/base-services/guard';
+import { AuthGuardService } from 'src/app/base/guard';
 
 const routes: VexRoutes = [
   {

@@ -33,7 +33,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MomentDateAdapter } from "@angular/material-moment-adapter";
-import { SYSTEM_CONTAIN } from 'src/app/base-services/system.contanst';
+import { SYSTEM_CONTAIN } from 'src/app/base/system.contanst';
+import { DatePickerComponent } from 'src/app/custom-component/date-picker/date-picker.component';
+import { DatePickerModule } from 'src/app/custom-component/date-picker/date-picker.module';
 
 const routes: VexRoutes = [
   { path: '', component: CategoryComponent, data: { toolbarShadowEnabled: true } }
@@ -66,18 +68,11 @@ const routes: VexRoutes = [
     MatInputModule,
     MatDatepickerModule,
     ReactiveFormsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+
+    DatePickerModule
   ],
-  providers: [
-    DatePipe,
-    { provide: MAT_DATE_LOCALE, useValue: 'vi-VI' },
-    {
-      provide: DateAdapter,
-      useClass: MomentDateAdapter,
-      deps: [MAT_DATE_LOCALE]
-    },
-    { provide: MAT_DATE_FORMATS, useValue: SYSTEM_CONTAIN.MY_FORMATS },
-  ],
+  providers: [DatePipe,],
 
 })
 export class CategoryModule { }

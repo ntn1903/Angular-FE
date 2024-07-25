@@ -7,8 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VexModule } from '../@vex/vex.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CustomLayoutModule } from './custom-layout/custom-layout.module';
-import { CustomInterceptor } from './base-services/custom.interceptor';
-import { AuthGuardService } from './base-services/guard';
+import { CustomInterceptor } from './base/custom.interceptor';
+import { AuthGuardService } from './base/guard';
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({

@@ -19,13 +19,7 @@
         <wms-input [label]="'Description'" [(ngModel)]="receivedData.description" [icon]="icAdd"></wms-input>
     </div>
     <div class="flex flex-col sm:flex-row" fxLayoutGap="20px">
-        <!-- <wms-input [label]="'Created At'" [(ngModel)]="receivedData.createdAt" [icon]="icAdd"></wms-input> -->
-        <mat-form-field>
-            <mat-label>Birthday</mat-label>
-            <input [matDatepicker]="datepickerRef" matInput [(ngModel)]="receivedData.createdAt">
-            <mat-datepicker-toggle [for]="datepickerRef" class="block" matPrefix></mat-datepicker-toggle>
-            <mat-datepicker #datepickerRef></mat-datepicker>
-        </mat-form-field>
+        <wms-date-picker [label]="'Create At'" [(ngModel)]="receivedData.createdAt"></wms-date-picker>
     </div>
 
 </mat-dialog-content>

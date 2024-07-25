@@ -14,7 +14,7 @@ import { fadeInUp400ms } from 'src/@vex/animations/fade-in-up.animation';
 import { stagger40ms } from 'src/@vex/animations/stagger.animation';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@angular/material/form-field';
 import { ProductCreateUpdateComponent } from './product-create-update/product-create-update.component';
-import { BaseService } from 'src/app/base-services/base.service';
+import { BaseService } from 'src/app/base/base.service';
 
 @Component({
   selector: 'vex-product',

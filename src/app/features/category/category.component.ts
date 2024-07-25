@@ -6,7 +6,7 @@ import { Category } from 'src/app/models/category/category.model';
 import { CategoryApiService } from './category-api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupCreateUpdateCategoryComponent } from './popup-create-update-category/popup-create-update-category.component';
-import { BaseService } from 'src/app/base-services/base.service';
+import { BaseService } from 'src/app/base/base.service';
 
 @Component({
   selector: 'vex-category',
