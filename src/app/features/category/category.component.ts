@@ -22,6 +22,7 @@ export class CategoryComponent extends BaseService implements OnInit {
     { label: 'Description', property: 'description', type: 'text', visible: true },
     { label: 'Created At', property: 'createdAt', type: 'datetime', visible: true },
     { label: 'Creator Id', property: 'creatorId', type: 'text', visible: false },
+    { label: 'Creator', property: 'creator', type: 'text', visible: true },
     { label: 'Actions', property: 'actions', type: 'button', visible: true }
   ];
 
@@ -43,13 +44,14 @@ export class CategoryComponent extends BaseService implements OnInit {
   }
 
   onCreateUpdateCategory(category?: Category) {
-    this.dialog.open(PopupCreateUpdateCategoryComponent,
-      {
-        data: this.isUndefined(category) ? { id: 0 } : category
-      }).afterClosed().subscribe(updatedCategory => {
-        if (updatedCategory) {
-          this.loadData();
+    this.dialog
+      .open(PopupCreateUpdateCategoryComponent,
+        {
+          data: this.isUndefined(category) ? {} : category,
         }
+      )
+      .afterClosed().subscribe(updatedCategory => {
+        if (updatedCategory) { this.loadData(); }
       });
   }
 }

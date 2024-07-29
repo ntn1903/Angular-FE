@@ -27,10 +27,16 @@ export const routes: VexRoutes = [
       {
         path: 'dashboard',
         loadChildren: () => import('./features/dashboards/dashboard.module').then(m => m.DashboardModule),
+        data: { breadcrumb: 'dashboard' } 
       },
       {
         path: 'category',
         loadChildren: () => import('../app/features/category/category.module').then(m => m.CategoryModule),
+        data: { breadcrumb: 'Category' } 
+      },
+      {
+        path: 'supplier',
+        loadChildren: () => import('../app/features/supplier/supplier.module').then(m => m.SupplierModule),
       },
       {
         path: 'product',
@@ -43,6 +49,7 @@ export const routes: VexRoutes = [
       {
         path: 'todo-list',
         loadChildren: () => import('../app/features/todo-list/todo-list.module').then(m => m.TodoListModule),
+        data: { breadcrumb: 'TODO List' } 
       },
       {
         path: 'pages',

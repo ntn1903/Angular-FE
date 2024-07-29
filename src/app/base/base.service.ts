@@ -35,6 +35,8 @@ import icPageView from '@iconify/icons-ic/pageview';
 import icInfo from '@iconify/icons-ic/twotone-info';
 import icStorage from '@iconify/icons-ic/storage';
 import icBusiness from '@iconify/icons-ic/twotone-business';
+import icChevronLeft from '@iconify/icons-ic/twotone-chevron-left';
+import icChevronRight from '@iconify/icons-ic/twotone-chevron-right';
 import { ResponseModel } from '../models/response-model.model';
 import { ToastrService } from 'ngx-toastr';
 
@@ -81,6 +83,8 @@ export class BaseService {
   icInfo = icInfo;
   icStorage = icStorage;
   icBusiness = icBusiness;
+  icChevronLeft = icChevronLeft;
+  icChevronRight = icChevronRight;
 
   constructor() { }
 

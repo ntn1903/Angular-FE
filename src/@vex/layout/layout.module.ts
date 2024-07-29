@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ProgressBarModule } from '../components/progress-bar/progress-bar.module';
 import { SearchModule } from '../components/search/search.module';
+import { BreadcrumbModule } from 'src/app/custom-component/breadcrumb/breadcrumb.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SearchModule } from '../components/search/search.module';
     RouterModule,
     MatSidenavModule,
     ProgressBarModule,
-    SearchModule
+    SearchModule,
+    BreadcrumbModule
   ],
   exports: [LayoutComponent]
 })

@@ -7,6 +7,7 @@ import { CategoryApiService } from '../category-api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DatePipe } from '@angular/common';
 import { ResponseModel } from 'src/app/models/response-model.model';
+import { Mode } from 'src/app/enums/mode';
 
 @Component({
   selector: 'vex-popup-create-update-category',
@@ -14,43 +15,38 @@ import { ResponseModel } from 'src/app/models/response-model.model';
   styleUrls: ['./popup-create-update-category.component.scss']
 })
 export class PopupCreateUpdateCategoryComponent extends BaseService implements OnInit {
-
   firstDayOfMonth = this.datePipe.transform(new Date(new Date().getFullYear(), new Date().getMonth(), 1), "YYYY-MM-dd");
   // today = this.datePipe.transform(new Date(), "YYYY-MM-dd");
   today = new Date();
-
-
-  mode: 'create' | 'update' = 'create';
-  form: FormGroup;
+  mode: Mode = Mode.None;
+  dialogLabel: string = '';
+  buttonLabel: string = '';
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public receivedData: any,
     public dialogRef: MatDialogRef<PopupCreateUpdateCategoryComponent>,
-    private fb: FormBuilder,
     private apiCategory: CategoryApiService,
     private datePipe: DatePipe,
     // private snackbar: MatSnackBar,
   ) {
     super();
-  }
-
-  ngOnInit(): void {
-
     this.receivedData = new Category(this.receivedData);
-    this.mode = this.receivedData.id == 0 ? 'create' : 'update';
-
-    // this.form = this.fb.group({
-    //   id: [this.receivedData.id],
-    //   name: this.receivedData.name || '',
-    //   description: this.receivedData.description || '',
-    //   createdAt: this.receivedData.createdAt || '',
-    //   creatorId: this.receivedData.creatorId || '',
-    // });
+    this.mode = this.isUndefined(this.receivedData.id) ? Mode.Create : Mode.Update;
+    this.dialogLabel = this.isUndefined(this.receivedData.id) ? Mode[Mode.Create] : Mode[Mode.Update];
+    this.buttonLabel = this.isUndefined(this.receivedData.id) ? Mode[Mode.Create] : Mode[Mode.Update];
   }
 
-  onUpdate() {
-    this.receivedData.createdAt = this.datePipe.transform(this.receivedData.createdAt, "YYYY-MM-dd");
+  ngOnInit(): void { }
 
-    this.apiCategory.update(this.receivedData).subscribe((res: ResponseModel) => { this.dialogRef.close(res.data); });
+  createOrUpdateCategory() {
+    switch (this.mode) {
+      case Mode.Create:
+        this.apiCategory.create(this.receivedData).subscribe((res: ResponseModel) => { this.dialogRef.close(res.data); });
+        break;
+      case Mode.Update:
+        this.apiCategory.update(this.receivedData).subscribe((res: ResponseModel) => { this.dialogRef.close(res.data); });
+        break;
+    }
+    // this.receivedData.createdAt = this.datePipe.transform(this.receivedData.createdAt, "YYYY-MM-dd");
   }
 }

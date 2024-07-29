@@ -91,14 +91,14 @@
 
 
 <vex-page-layout>
-    <vex-page-layout-header class="pb-16" fxLayout="column" fxLayoutAlign="center start">
-        <div [class.container]="layoutCtrl.value === 'boxed'" [class.px-gutter]="layoutCtrl.value === 'fullwidth'"
+    <vex-page-layout-header class="pb-0" fxLayout="column" fxLayoutAlign="center start">
+        <!-- <div [class.container]="layoutCtrl.value === 'boxed'" [class.px-gutter]="layoutCtrl.value === 'fullwidth'"
             class="w-full flex flex-col sm:flex-row justify-between">
             <mat-button-toggle-group [formControl]="layoutCtrl" class="mt-4 sm:mt-0">
                 <mat-button-toggle value="boxed">SMALL</mat-button-toggle>
                 <mat-button-toggle value="fullwidth">LARGE</mat-button-toggle>
             </mat-button-toggle-group>
-        </div>
+        </div> -->
     </vex-page-layout-header>
 
     <vex-page-layout-content [class.container]="layoutCtrl.value === 'boxed'"
@@ -136,7 +136,12 @@
                     <mat-icon [icIcon]="icSearch"></mat-icon>
                 </button>
 
-                <button *ngIf="isShowFilterColumns" [matMenuTriggerFor]="columnFilterMenu" class="ml-4" fxFlex="none"
+                <mat-button-toggle-group [formControl]="layoutCtrl" class="ml-4" fxFlex="none">
+                    <mat-button-toggle value="boxed">SMALL</mat-button-toggle>
+                    <mat-button-toggle value="fullwidth">LARGE</mat-button-toggle>
+                </mat-button-toggle-group>
+
+                <button class="ml-4" fxFlex="none" *ngIf="isShowFilterColumns" [matMenuTriggerFor]="columnFilterMenu" 
                     mat-icon-button matTooltip="Filter Columns" type="button">
                     <mat-icon [icIcon]="icFilterList"></mat-icon>
                 </button>

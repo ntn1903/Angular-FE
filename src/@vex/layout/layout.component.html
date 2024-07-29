@@ -16,6 +16,7 @@
   <vex-search></vex-search>
 
   <mat-sidenav-container class="sidenav-container">
+
     <mat-sidenav #sidenav
                  [disableClose]="isDesktop$ | async"
                  [fixedInViewport]="!(isDesktop$ | async)"
@@ -37,6 +38,8 @@
       <ng-container *ngTemplateOutlet="toolbarRef"></ng-container>
 
       <main class="content">
+        <app-breadcrumb></app-breadcrumb>
+
         <router-outlet></router-outlet>
       </main>
 

@@ -82,7 +82,6 @@ export class AppComponent implements OnDestroy {
      * Add your own routes here
      */
     this.navigationService.items = [
-
       {
         type: 'link',
         label: 'Dashboard',
@@ -105,6 +104,12 @@ export class AppComponent implements OnDestroy {
         type: 'link',
         label: 'Category',
         route: '/category',
+        icon: icLayers,
+      },
+      {
+        type: 'link',
+        label: 'Supplier',
+        route: '/supplier',
         icon: icLayers,
       },
       {

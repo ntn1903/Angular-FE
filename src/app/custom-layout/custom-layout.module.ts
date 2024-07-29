@@ -8,6 +8,7 @@ import { FooterModule } from '../../@vex/layout/footer/footer.module';
 import { ConfigPanelModule } from '../../@vex/components/config-panel/config-panel.module';
 import { SidebarModule } from '../../@vex/components/sidebar/sidebar.module';
 import { QuickpanelModule } from '../../@vex/layout/quickpanel/quickpanel.module';
+import { BreadcrumbModule } from '../custom-component/breadcrumb/breadcrumb.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { QuickpanelModule } from '../../@vex/layout/quickpanel/quickpanel.module
     FooterModule,
     ConfigPanelModule,
     SidebarModule,
-    QuickpanelModule
+    QuickpanelModule,
+    BreadcrumbModule
   ]
 })
 export class CustomLayoutModule {

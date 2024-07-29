@@ -146,7 +146,8 @@ export class TableComponent extends BaseService implements OnInit, AfterViewInit
   }
   handleOnDelete(data: any) {
     this.dialog.open(DialogConfirmComponent, {
-      data: "Do you want to delete this record?"
+      data: "Do you want to delete this record?",
+      autoFocus: false,
     }).afterClosed().subscribe((res: any) => {
       if (res === 'Y')
         this.onDelete.emit(JSON.parse(JSON.stringify(data)))

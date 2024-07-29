@@ -6,13 +6,14 @@ import icRadioButtonUnchecked from '@iconify/icons-ic/twotone-radio-button-unche
 import { LayoutService } from '../../services/layout.service';
 import { ConfigService } from '../../services/config.service';
 import { map } from 'rxjs/operators';
+import { BaseService } from 'src/app/base/base.service';
 
 @Component({
   selector: 'vex-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent extends BaseService implements OnInit {
 
   @Input() collapsed: boolean;
   collapsedOpen$ = this.layoutService.sidenavCollapsedOpen$;
@@ -27,7 +28,9 @@ export class SidenavComponent implements OnInit {
 
   constructor(private navigationService: NavigationService,
               private layoutService: LayoutService,
-              private configService: ConfigService) { }
+              private configService: ConfigService) {
+    super();
+  }
 
   ngOnInit() {
   }

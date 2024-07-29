@@ -25,4 +25,8 @@ export class CategoryApiService {
   update(category: CreateUpdateCategory): Observable<any> {
     return this.http.put<any>(`${environment.apiUrl}/${this.url}`, category);
   }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete<any>(`${environment.apiUrl}/${this.url}/` + id);
+  }
 }

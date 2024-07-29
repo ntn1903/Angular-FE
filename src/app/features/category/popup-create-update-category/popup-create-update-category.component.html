@@ -1,12 +1,11 @@
 <div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
-    <h2 class="headline m-0" fxFlex="auto">{{mode == 'create' ? 'CREATE' : 'UPDATE'}}</h2>
+    <h5 class="headline m-0" fxFlex="auto">{{dialogLabel + ' category' }}</h5>
 
-    <button *ngIf="mode=='update'" [matMenuTriggerFor]="settingsMenu" class="text-secondary" mat-icon-button
-        type="button">
+    <!-- <button [matMenuTriggerFor]="settingsMenu" class="text-secondary" mat-icon-button type="button">
         <mat-icon [icIcon]="icMoreVert"></mat-icon>
-    </button>
+    </button> -->
 
-    <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
+    <button class="text-secondary" mat-dialog-close mat-icon-button>
         <mat-icon [icIcon]="icClose"></mat-icon>
     </button>
 </div>
@@ -18,15 +17,15 @@
         <wms-input [label]="'Name'" [(ngModel)]="receivedData.name" [icon]="icAdd"></wms-input>
         <wms-input [label]="'Description'" [(ngModel)]="receivedData.description" [icon]="icAdd"></wms-input>
     </div>
-    <div class="flex flex-col sm:flex-row" fxLayoutGap="20px">
+    <!-- <div class="flex flex-col sm:flex-row" fxLayoutGap="20px">
         <wms-date-picker [label]="'Create At'" [(ngModel)]="receivedData.createdAt"></wms-date-picker>
-    </div>
+    </div> -->
 
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close type="button">CANCEL</button>
-    <button color="primary" mat-button (click)="onUpdate()">{{mode == 'create' ? 'CREATE' : 'UPDATE'}}</button>
+    <button mat-button mat-dialog-close>CANCEL</button>
+    <button color="primary" mat-button (click)="createOrUpdateCategory()">{{dialogLabel | uppercase }}</button>
 </mat-dialog-actions>
 
 <mat-menu #settingsMenu="matMenu" xPosition="before" yPosition="below">

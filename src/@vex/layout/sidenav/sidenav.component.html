@@ -11,8 +11,8 @@
             class="w-8 h-8 -mr-2 leading-none flex-none hidden lg:block"
             mat-icon-button
             type="button">
-      <mat-icon *ngIf="!collapsed" [icIcon]="icRadioButtonChecked" size="14px"></mat-icon>
-      <mat-icon *ngIf="collapsed" [icIcon]="icRadioButtonUnchecked" size="14px"></mat-icon>
+      <mat-icon *ngIf="!collapsed" [icIcon]="icChevronLeft" size="20px" matTooltip="Collapse"></mat-icon>
+      <mat-icon *ngIf="collapsed" [icIcon]="icChevronRight" size="20px" matTooltip="Expand"></mat-icon>
     </button>
   </div>
 
