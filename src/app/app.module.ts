@@ -9,7 +9,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CustomLayoutModule } from './custom-layout/custom-layout.module';
 import { CustomInterceptor } from './base/custom.interceptor';
 import { AuthGuardService } from './base/guard';
-import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,14 +21,14 @@ import { ToastrModule } from 'ngx-toastr';
     // Vex
     VexModule,
     CustomLayoutModule,
-    ToastrModule.forRoot({
-      closeButton: false,
-      timeOut: 3000,
-      progressBar: true,
-      preventDuplicates: true,
-      resetTimeoutOnDuplicate: true,
-      includeTitleDuplicates: true
-    }),
+    // ToastrModule.forRoot({
+    //   closeButton: false,
+    //   timeOut: 3000,
+    //   progressBar: true,
+    //   preventDuplicates: true,
+    //   resetTimeoutOnDuplicate: true,
+    //   includeTitleDuplicates: true
+    // }),
   ],
   providers: [
     {

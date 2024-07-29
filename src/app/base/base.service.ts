@@ -38,7 +38,6 @@ import icBusiness from '@iconify/icons-ic/twotone-business';
 import icChevronLeft from '@iconify/icons-ic/twotone-chevron-left';
 import icChevronRight from '@iconify/icons-ic/twotone-chevron-right';
 import { ResponseModel } from '../models/response-model.model';
-import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
