@@ -34,7 +34,7 @@ const routes: VexRoutes = [
   {
     path: '',
     component: ProductComponent,
-    data: { toolbarShadowEnabled: false },
+    data: { breadcrumb: 'Product' },
   }
 ];
 

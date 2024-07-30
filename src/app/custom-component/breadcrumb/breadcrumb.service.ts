@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Data, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Data, NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { Breadcrumb } from 'src/app/models/breadcrumb.model';
 
 @Injectable({
@@ -9,21 +9,33 @@ import { Breadcrumb } from 'src/app/models/breadcrumb.model';
 })
 export class BreadcrumbService {
   private readonly _breadcrumbs$ = new BehaviorSubject<Breadcrumb[]>([]);
-
   readonly breadcrumbs$ = this._breadcrumbs$.asObservable();
-
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.router.events.pipe(
-      filter((event) => event instanceof NavigationEnd)
+      filter((event) => event instanceof NavigationEnd),
+      map(() => this.rootRoute(this.route)),
+      filter((route: ActivatedRoute) => route.outlet === 'primary'),
     ).subscribe(event => {
-      console.log('event', event)
+      // console.log(event)
+      // console.log(event.snapshot['_routerState']);
+      // console.log(event.data['_value']['breadcrumb']);
       const root = this.router.routerState.snapshot.root;
+
       const breadcrumbs: Breadcrumb[] = [];
 
       this.addBreadcrumb(root, [], breadcrumbs);
-
       this._breadcrumbs$.next(breadcrumbs);
     });
+  }
+
+  private rootRoute(route: ActivatedRoute): ActivatedRoute {
+    while (route.firstChild) {
+      route = route.firstChild;
+    }
+    return route;
   }
 
   private addBreadcrumb(route: ActivatedRouteSnapshot, parentUrl: string[], breadcrumbs: Breadcrumb[]) {
@@ -37,9 +49,6 @@ export class BreadcrumbService {
         };
         breadcrumbs.push(breadcrumb);
       }
-      console.log('route.firstChild', route.firstChild)
-      console.log('routeUrl', routeUrl)
-      console.log('breadcrumbs', breadcrumbs)
 
       this.addBreadcrumb(route.firstChild, routeUrl, breadcrumbs);
     }

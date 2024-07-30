@@ -23,12 +23,13 @@ import { TodoListDialogComponent } from './todo-list-dialog/todo-list-dialog.com
 const routes: VexRoutes = [
   {
     path: '',
-    redirectTo: '1'
+    redirectTo: '1',
   },
   {
     path: ':todoListId',
     component: TodoListComponent,
     data: {
+      breadcrumb: '1',
       scrollDisabled: true,
       containerEnabled: true
     }

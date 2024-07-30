@@ -1,6 +1,15 @@
-<ul>
-    <li *ngFor="let breadcrumb of (breadcrumbs$ | async)">
-      <a [href]="breadcrumb.url">{{ breadcrumb.label }}</a>
-    </li>
-  </ul>
-  
+<vex-secondary-toolbar>
+  <div class="flex items-center">
+    <wms-breadcrumb>
+      <a [routerLink]="['/']">
+        <ic-icon [icon]="icHome" inline="true" size="20px"></ic-icon>
+      </a>
+    </wms-breadcrumb>
+    <ng-container *ngFor="let crumb of (breadcrumbs$ | async);">
+      <div class="w-1 h-1 bg-gray rounded-full ltr:mr-2 rtl:ml-2"></div>
+      <wms-breadcrumb>
+        <a [routerLink]="[]">{{ crumb.label }}</a>
+      </wms-breadcrumb>
+    </ng-container>
+  </div>
+</vex-secondary-toolbar>

@@ -14,7 +14,8 @@ const routes: VexRoutes = [
     component: Error404Component,
     data: {
       containerEnabled: true,
-      toolbarShadowEnabled: true
+      toolbarShadowEnabled: true,
+      breadcrumb: '404'
     }
   }
 ];

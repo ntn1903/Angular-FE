@@ -18,21 +18,19 @@ export const routes: VexRoutes = [
     path: 'forgot-password',
     loadChildren: () => import('./auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule),
   },
-  
+
   {
     path: '',
     component: CustomLayoutComponent,
-    canActivate:[AuthGuardService],
+    canActivate: [AuthGuardService],
     children: [
       {
         path: 'dashboard',
         loadChildren: () => import('./features/dashboards/dashboard.module').then(m => m.DashboardModule),
-        data: { breadcrumb: 'dashboard' } 
       },
       {
         path: 'category',
         loadChildren: () => import('../app/features/category/category.module').then(m => m.CategoryModule),
-        data: { breadcrumb: 'Category' } 
       },
       {
         path: 'supplier',
@@ -49,10 +47,11 @@ export const routes: VexRoutes = [
       {
         path: 'todo-list',
         loadChildren: () => import('../app/features/todo-list/todo-list.module').then(m => m.TodoListModule),
-        data: { breadcrumb: 'TODO List' } 
+        data: { breadcrumb: 'TODO list' }
       },
       {
         path: 'pages',
+        data: { breadcrumb: 'Pages' },
         children: [
           {
             path: 'error-404',
@@ -153,7 +152,7 @@ export const routes: VexRoutes = [
             path: 'faq',
             loadChildren: () => import('./pages/pages/faq/faq.module').then(m => m.FaqModule)
           },
-          
+
         ]
       },
       {

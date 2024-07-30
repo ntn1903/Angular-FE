@@ -17,10 +17,10 @@ const routes: VexRoutes = [
     path: '',
     component: ComingSoonComponent,
     data: {
-      containerEnabled: true,
-      toolbarShadowEnabled: true
-    }
-  }
+      // containerEnabled: true,
+      breadcrumb: 'Coming soon'
+    },
+  },
 ];
 
 @NgModule({

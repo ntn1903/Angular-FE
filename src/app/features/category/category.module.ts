@@ -37,7 +37,7 @@ import { SYSTEM_CONTAIN } from 'src/app/base/system.contanst';
 import { DatePickerModule } from 'src/app/custom-component/date-picker/date-picker.module';
 
 const routes: VexRoutes = [
-  { path: '', component: CategoryComponent, data: { toolbarShadowEnabled: true } }
+  { path: '', component: CategoryComponent, data: { breadcrumb: 'Category' }  }
 ];
 
 @NgModule({

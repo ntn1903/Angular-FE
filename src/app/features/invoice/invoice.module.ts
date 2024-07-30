@@ -13,7 +13,8 @@ const routes: VexRoutes = [
     component: InvoiceComponent,
     data: {
       toolbarShadowEnabled: true,
-      containerEnabled: true
+      containerEnabled: true,
+      breadcrumb: 'Invoice'
     }
   }
 ];

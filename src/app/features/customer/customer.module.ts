@@ -28,7 +28,7 @@ const routes: VexRoutes = [
     path: '',
     component: CustomerComponent,
     data: {
-      toolbarShadowEnabled: true
+      breadcrumb: 'Customer'
     }
   }
 ];

@@ -8,7 +8,7 @@ import { IconModule } from '@visurel/iconify-angular';
 import { TableModule } from 'src/app/custom-component/table/table.module';
 
 const routes: VexRoutes = [
-  { path: '', component: SupplierComponent, data: { toolbarShadowEnabled: true } }
+  { path: '', component: SupplierComponent, data: { breadcrumb: 'Supplier' } }
 ];
 
 @NgModule({

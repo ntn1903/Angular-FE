@@ -33,7 +33,7 @@ const routes: VexRoutes = [
   {
     path: '',
     component: ProjectComponent,
-    data: { toolbarShadowEnabled: false }
+    data: { breadcrumb: 'Project' }
   }
 ];
 
