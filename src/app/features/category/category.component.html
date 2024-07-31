@@ -3,9 +3,12 @@
     [data]="categories"
     (onCreate)="onCreateUpdateCategory($event)"
     (onUpdate)="onCreateUpdateCategory($event)"
+    (onDelete)="onDeleteCategory($event)"
+    (onExport)="onExportCategory()"
+    (onDeleteSelected)="onDeleteCategories($event)"
 ></wms-table>
 <!-- 
 (onCreate)="onCreate()"
 (onUpdate)="onUpdate($event)"
 (onDetail)="onDetail($event)"
-(onDelete)="onDelete($event)" -->
+ (onDelete)="onDeleteCategory($event)"-->

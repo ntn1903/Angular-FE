@@ -7,12 +7,14 @@ import { CategoryApiService } from './category-api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupCreateUpdateCategoryComponent } from './popup-create-update-category/popup-create-update-category.component';
 import { BaseService } from 'src/app/base/base.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'vex-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss'],
   animations: [fadeInUp400ms, stagger40ms],
+  providers: [DatePipe,],
 })
 export class CategoryComponent extends BaseService implements OnInit {
   columns: TableColumn<Category>[] = [
@@ -29,7 +31,8 @@ export class CategoryComponent extends BaseService implements OnInit {
   categories: Category[] = [];
   constructor(
     private dialog: MatDialog,
-    private categoryApiService: CategoryApiService
+    private categoryApiService: CategoryApiService,
+    private datePipe : DatePipe,
   ) {
     super();
   }
@@ -53,5 +56,23 @@ export class CategoryComponent extends BaseService implements OnInit {
       .afterClosed().subscribe(updatedCategory => {
         if (updatedCategory) { this.loadData(); }
       });
+  }
+
+  onDeleteCategory(category: Category) {
+    this.categoryApiService.delete(category.id).subscribe(res => {
+      this.loadData();
+    });
+  }
+
+  onExportCategory(){
+    const fileName = this.datePipe.transform(new Date(), "YYYYMMdd") + '_Category'
+    this.categoryApiService.exportExcel(fileName);
+  }
+
+  onDeleteCategories(categories: Category[]) {
+    let listId = [];
+    categories.forEach(m => listId.push(m.id))
+
+    this.categoryApiService.deleteMany(listId).subscribe(_ => this.loadData());
   }
 }

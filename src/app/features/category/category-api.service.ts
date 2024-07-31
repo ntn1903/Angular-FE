@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -6,7 +7,7 @@ import { GetCategoryDto } from 'src/app/models/category/get-category-dto.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CategoryApiService {
   private url = "Category";
@@ -28,5 +29,20 @@ export class CategoryApiService {
 
   delete(id: number): Observable<any> {
     return this.http.delete<any>(`${environment.apiUrl}/${this.url}/` + id);
+  }
+
+  deleteMany(ids: number[]): Observable<any> {
+    return this.http.delete<any>(`${environment.apiUrl}/${this.url}/deleteMany/`, { params: { ids: ids } });
+  }
+
+  exportExcel(fileName: string): any {
+    return this.http.get((`${environment.apiUrl}/${this.url}/exportExcel`), { responseType: 'blob' }).subscribe((blob: Blob) => {
+      // saveAs(blob, fileName);
+      const url = window.URL.createObjectURL(blob);
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = fileName;
+      link.click();
+    });
   }
 }

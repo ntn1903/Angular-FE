@@ -8,7 +8,7 @@ export class CustomInterceptor implements HttpInterceptor {
     constructor() { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const localToken: string = localStorage.getItem('token') ?? '';
+        const localToken: string = localStorage.getItem('token');
 
         // if (req.url.includes('token')) {
         //     /** hide message when login with method post */
@@ -57,8 +57,8 @@ export class CustomInterceptor implements HttpInterceptor {
         //     localStorage.clear();
         // }
 
-        const cloneRequest = req.clone({ setHeaders: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
-        // const cloneRequest = req.clone({ headers: req.headers.set('Authorization', `Bearer ${localStorage.getItem('token')}`) });
+        const cloneRequest = req.clone({ setHeaders: { Authorization: `Bearer ${localToken}` } });
+        // const cloneRequest = req.clone({ headers: req.headers.set('Authorization', `Bearer ${localToken}`) });
         return next.handle(cloneRequest);
         // return next(cloneRequest).pipe(
         //     catchError((err: any) => {

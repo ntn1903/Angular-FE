@@ -1,95 +1,3 @@
-<!-- <section class="example-container mat-elevation-z8">
-    <mat-grid-list cols="6" rowHeight="50">
-        <mat-grid-tile colspan="2">
-            <div class="mat-grid-tile-content table-name">
-                {{tableName}}
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="2">
-            <wms-input [placeholder]="'Search'" (keyup)="applyFilter($event)" [iconName]="'search'"
-                [showClearIcon]="true" style="width:100%" #input></wms-input>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="2">
-            <div class="mat-grid-tile-content btn-group">
-                <ng-container *ngIf="showUploadBtn">
-                    <div class="px-2">
-                        <button mat-mini-fab class="btn" matTooltip="Upload file" (click)="handleOnUpload()">
-                            <mat-icon>upload</mat-icon>
-                        </button>
-                    </div>
-                </ng-container>
-                <ng-container *ngIf="showDownloadBtn">
-                    <div class="px-2">
-                        <button mat-mini-fab class="btn" matTooltip="Download file" (click)="handleOnDownload()">
-                            <mat-icon>download</mat-icon>
-                        </button>
-                    </div>
-                </ng-container>
-                <ng-container *ngIf="showCreateBtn">
-                    <div class="px-2">
-                        <button mat-mini-fab class="btn" matTooltip="Create" (click)="handleOnCreate()">
-                            <mat-icon>add</mat-icon>
-                        </button>
-                    </div>
-                </ng-container>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-    <table mat-table [dataSource]="dataSource" matSort>
-        <ng-container *ngFor="let column of columns; trackBy: trackByProperty">
-            <ng-container *ngIf="column.type === 'text' || column.type === null || column.type === undefined"
-                [matColumnDef]="column.property">
-                <th *matHeaderCellDef mat-header-cell mat-sort-header
-                    > {{ column.label }}</th>
-                <td *matCellDef="let row" mat-cell >{{ row[column.property] }}</td>
-            </ng-container>
-
-            <ng-container *ngIf="column.type === 'date'" [matColumnDef]="column.property">
-                <th *matHeaderCellDef mat-header-cell mat-sort-header
-                    > {{ column.label }}</th>
-                <td *matCellDef="let row" mat-cell >{{ row[column.property] | date:
-                    "YYYY-MM-dd" }}</td>
-            </ng-container>
-
-            <ng-container *ngIf="column.type === 'datetime'" [matColumnDef]="column.property">
-                <th *matHeaderCellDef mat-header-cell mat-sort-header
-                    > {{ column.label }}</th>
-                <td *matCellDef="let row" mat-cell >{{ row[column.property] | date:
-                    "YYYY-MM-dd HH:mm:ss" }}</td>
-            </ng-container>
-
-            <ng-container *ngIf="column.type === 'button'" [matColumnDef]="column.property">
-                <th *matHeaderCellDef mat-header-cell mat-sort-header
-                    > {{ column.label }}</th>
-                <td *matCellDef="let row" mat-cell [ngStyle]="{width: '10%'}">
-                    <i *ngIf="column.buttons?.includes('view') === true" class="fa-solid fa-circle-info"
-                        matTooltip="Detail" (click)="handleOnView($event)"></i>
-                    <i *ngIf="column.buttons?.includes('edit') === true" class="fa-solid fa-pencil" matTooltip="Edit"
-                        (click)="handleOnEdit($event)"></i>
-                    <i *ngIf="column.buttons?.includes('delete') === true" class="fa-solid fa-trash" matTooltip="Delete"
-                        (click)="handleOnDelete($event)"></i>
-                </td>
-            </ng-container>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="visibleColumns; sticky: true"></tr>
-        <tr *matRowDef="let row; columns: visibleColumns" mat-row (click)="handleRowClick(row)"></tr>
-        <tr class="mat-row" *matNoDataRow style="text-align: center; height: 52px;">
-            <td sclass="mat-cell" [attr.colspan]="visibleColumns.length">No record.</td>
-        </tr>
-    </table>
-    <mat-paginator [pageSizeOptions]="PAGE_SIZE_OPTIONS" [pageSize]="PAGE_SIZE_DEFAULT"
-        style="border-top: 1px solid gray;"></mat-paginator>
-</section> -->
-
-
-
-
-
-
-
-
-
 <vex-page-layout>
     <vex-page-layout-header class="pb-0" fxLayout="column" fxLayoutAlign="center start">
         <!-- <div [class.container]="layoutCtrl.value === 'boxed'" [class.px-gutter]="layoutCtrl.value === 'fullwidth'"
@@ -108,12 +16,14 @@
             <div class="bg-app-bar px-6 h-16 border-b sticky left-0" fxLayout="row" fxLayoutAlign="start center">
                 <h2 class="title my-0 ltr:pr-4 rtl:pl-4 ltr:mr-4 rtl:ml-4 ltr:border-r rtl:border-l" fxFlex="none"
                     fxHide.xs>
+                    <span *ngIf="selection.isEmpty()"></span>
                     <span *ngIf="selection.hasValue()">{{ selection.selected.length }} record<span
                             *ngIf="selection.selected.length > 1">s</span> selected</span>
                 </h2>
 
                 <div *ngIf="selection.hasValue()" class="mr-4 pr-4 border-r" fxFlex="none">
-                    <button color="primary" mat-icon-button matTooltip="Delete selected" type="button">
+                    <button (click)="handleOnDeleteSelected(selection.selected)" color="primary" mat-icon-button
+                        matTooltip="Delete selected" type="button">
                         <mat-icon [icIcon]="icDelete"></mat-icon>
                     </button>
 
@@ -141,12 +51,16 @@
                     <mat-button-toggle value="fullwidth">LARGE</mat-button-toggle>
                 </mat-button-toggle-group>
 
-                <button class="ml-4" fxFlex="none" *ngIf="isShowFilterColumns" [matMenuTriggerFor]="columnFilterMenu" 
+                <button class="ml-4" fxFlex="none" *ngIf="isShowFilterColumns" [matMenuTriggerFor]="columnFilterMenu"
                     mat-icon-button matTooltip="Filter Columns" type="button">
                     <mat-icon [icIcon]="icFilterList"></mat-icon>
                 </button>
 
-                <button class="ml-4" color="primary" fxFlex="none" mat-mini-fab matTooltip="Add Product" type="button"
+                <button class="ml-4" mat-icon-button fxFlex="none" matTooltip="Export" (click)="onExport.emit()">
+                    <mat-icon [icIcon]="icDownload"></mat-icon>
+                </button>
+
+                <button class="ml-4" color="primary" fxFlex="none" mat-mini-fab matTooltip="Add" type="button"
                     (click)="onCreate.emit()">
                     <mat-icon [icIcon]="icAdd"></mat-icon>
                 </button>
@@ -187,7 +101,8 @@
             <ng-container *ngFor="let column of columns; trackBy: trackByProperty">
                 <ng-container *ngIf="column.type === 'datetime'" [matColumnDef]="column.property">
                     <th *matHeaderCellDef class="uppercase" mat-header-cell mat-sort-header> {{ column.label }}</th>
-                    <td *matCellDef="let row" [ngClass]="column.cssClasses" mat-cell>{{ row[column.property] | date : 'YYYY-MM-dd HH:mm:ss' }}</td>
+                    <td *matCellDef="let row" [ngClass]="column.cssClasses" mat-cell>{{ row[column.property] | date :
+                        'YYYY-MM-dd HH:mm:ss' }}</td>
                 </ng-container>
             </ng-container>
 
@@ -208,13 +123,16 @@
             <ng-container matColumnDef="actions">
                 <th *matHeaderCellDef mat-header-cell mat-sort-header></th>
                 <td *matCellDef="let row" mat-cell [ngStyle]="{width: '10%'}">
-                    <button mat-icon-button type="button" (click)="onDetail.emit(row)">
+                    <button mat-icon-button type="button" [disabled]="selection.hasValue()"
+                        (click)="onDetail.emit(row)">
                         <mat-icon style="color: darkgreen;" [icIcon]="icInfo" matTooltip="Detail" size="23"></mat-icon>
                     </button>
-                    <button mat-icon-button type="button" (click)="onUpdate.emit(row)">
+                    <button mat-icon-button type="button" [disabled]="selection.hasValue()"
+                        (click)="onUpdate.emit(row)">
                         <mat-icon style="color: chocolate;" [icIcon]="icEdit" matTooltip="Edit" size="23"></mat-icon>
                     </button>
-                    <button mat-icon-button type="button" (click)="handleOnDelete(row)">
+                    <button mat-icon-button type="button" [disabled]="selection.hasValue()"
+                        (click)="handleOnDelete(row)">
                         <mat-icon style="color: crimson;" [icIcon]="icDelete" matTooltip="Delete" size="23"></mat-icon>
                     </button>
                     <!-- <div class="flex">

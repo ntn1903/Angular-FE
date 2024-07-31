@@ -14,8 +14,6 @@ import { stagger40ms } from 'src/@vex/animations/stagger.animation';
 import { TableColumn } from 'src/@vex/interfaces/table-column.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.component';
-import { Observable, of, ReplaySubject } from 'rxjs';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'wms-table',
@@ -40,6 +38,8 @@ export class TableComponent extends BaseService implements OnInit, AfterViewInit
   @Output() onUpdate = new EventEmitter<any>();
   @Output() onDetail = new EventEmitter<any>();
   @Output() onDelete = new EventEmitter<any>();
+  @Output() onExport = new EventEmitter<any>();
+  @Output() onDeleteSelected = new EventEmitter<any>();
 
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -68,6 +68,7 @@ export class TableComponent extends BaseService implements OnInit, AfterViewInit
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['data']) {
       this.dataSource = new MatTableDataSource(this.data as any[]);
+      this.dataSource.paginator = this.paginator;
     }
   }
 
@@ -81,7 +82,7 @@ export class TableComponent extends BaseService implements OnInit, AfterViewInit
     setTimeout(() => {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    }, 0);
+    }, 100);
   }
 
   applyFilter(event: Event) {
@@ -138,12 +139,6 @@ export class TableComponent extends BaseService implements OnInit, AfterViewInit
 
 
   /////////////////////////////////////
-  handleOnUpdate(data: any) {
-    this.onUpdate.emit(JSON.parse(JSON.stringify(data)));
-  }
-  handleOnDetail(data: any) {
-    this.onDetail.emit(JSON.parse(JSON.stringify(data)));
-  }
   handleOnDelete(data: any) {
     this.dialog.open(DialogConfirmComponent, {
       data: "Do you want to delete this record?",
@@ -151,6 +146,18 @@ export class TableComponent extends BaseService implements OnInit, AfterViewInit
     }).afterClosed().subscribe((res: any) => {
       if (res === 'Y')
         this.onDelete.emit(JSON.parse(JSON.stringify(data)))
+    });
+  }
+
+  handleOnDeleteSelected(data: any[]) {
+    this.dialog.open(DialogConfirmComponent, {
+      data: `Do you want to delete ${data.length} ${data.length < 2 ? 'record' : 'records'}?`,
+      autoFocus: false,
+    }).afterClosed().subscribe((res: any) => {
+      if (res === 'Y') {
+        this.onDeleteSelected.emit(JSON.parse(JSON.stringify(data)))
+        this.selection.clear();
+      }
     });
   }
 }

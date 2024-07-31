@@ -12,12 +12,12 @@
     <h1 [fxHide]="mobileQuery" class="title ltr:pl-4 rtl:pr-4 m-0 select-none">VEX</h1>
   </a>
 
-  <!-- <button *ngIf="isHorizontalLayout$ | async"
+  <button *ngIf="isHorizontalLayout$ | async"
           [fxHide]="mobileQuery"
           [matMenuTriggerFor]="addNewMenu"
           color="primary"
           mat-raised-button
-          type="button">ADD NEW
+          type="button">QUICK ADD NEW
   </button>
 
   <mat-menu #addNewMenu="matMenu" [overlapTrigger]="false" xPosition="after" yPosition="below">
@@ -59,7 +59,7 @@
     </button>
   </mat-menu>
 
-  <div #megaMenuOriginRef class="ltr:ml-2 rtl:mr-2">
+  <!-- <div #megaMenuOriginRef class="ltr:ml-2 rtl:mr-2">
     <button *ngIf="isHorizontalLayout$ | async"
             [fxHide]="mobileQuery"
             (click)="openMegaMenu(megaMenuOriginRef)"
