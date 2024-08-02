@@ -38,6 +38,7 @@ export class ProductComponent extends BaseService implements OnInit, AfterViewIn
     { label: 'Name', property: 'name', type: 'text', visible: true, cssClasses: ['font-medium'] },
     { label: 'Unit', property: 'unit', type: 'text', visible: true },
     { label: 'Quantity', property: 'quantity', type: 'number', visible: true },
+    { label: '$ Price', property: 'ss', type: 'number', visible: true },
     { label: 'Status', property: 'status', type: 'badge', visible: true },
     { label: 'Actions', property: 'actions', type: 'button', visible: true }
   ];

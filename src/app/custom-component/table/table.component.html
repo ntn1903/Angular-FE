@@ -31,7 +31,7 @@
           </button>
         </div>
 
-        <div class="bg-card rounded-full border px-4" fxFlex="400px" fxFlex.lt-md="auto" fxHide.xs fxLayout="row"
+        <div *ngIf="isShowSearch" class="bg-card rounded-full border px-4" fxFlex="400px" fxFlex.lt-md="auto" fxHide.xs fxLayout="row"
           fxLayoutAlign="start center">
           <ic-icon [icIcon]="icSearch" size="20px"></ic-icon>
           <input (keyup)="applyFilter($event)" [(ngModel)]="searchValue"
@@ -44,24 +44,24 @@
           <mat-icon [icIcon]="icSearch"></mat-icon>
         </button>
 
-        <mat-button-toggle-group [formControl]="layoutCtrl" class="ml-4" fxFlex="none">
+        <mat-button-toggle-group *ngIf="isShowResize" [formControl]="layoutCtrl" class="ml-4" fxFlex="none">
           <mat-button-toggle value="boxed">SMALL</mat-button-toggle>
           <mat-button-toggle value="fullwidth">LARGE</mat-button-toggle>
         </mat-button-toggle-group>
 
-        <button *ngIf="isShowFilterColumns" class="ml-4" fxFlex="none" [matMenuTriggerFor]="columnFilterMenu"
+        <button *ngIf="isShowFilterColumns" class="ml-4" color="primary" fxFlex="none" [matMenuTriggerFor]="columnFilterMenu"
           mat-icon-button matTooltip="Filter Columns" type="button">
           <mat-icon [icIcon]="icFilterList"></mat-icon>
         </button>
 
         <input #fileUpload type="file" style="display:none" (change)="onUpload.emit($event)" onclick="this.value=null;"
           [accept]="acceptType">
-        <button *ngIf="isShowUpload" class="ml-4" mat-icon-button fxFlex="none" matTooltip="Upload Excel"
+        <button *ngIf="isShowUpload" class="ml-4" color="primary" mat-icon-button fxFlex="none" matTooltip="Upload Excel"
           (click)="fileUpload.click()">
           <mat-icon [icIcon]="icUpload"></mat-icon>
         </button>
 
-        <button *ngIf="isShowExport" class="ml-4" mat-icon-button fxFlex="none" matTooltip="Export Excel"
+        <button *ngIf="isShowExport" class="ml-4" color="primary" mat-icon-button fxFlex="none" matTooltip="Export Excel"
           (click)="onExport.emit()">
           <mat-icon [icIcon]="icDownload"></mat-icon>
         </button>

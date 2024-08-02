@@ -34,6 +34,8 @@ export class TableComponent extends BaseService implements OnInit, AfterViewInit
   @Input() data: any[] = [];
 
   @Input() isShowFilterColumns: boolean = true;
+  @Input() isShowSearch: boolean = true;
+  @Input() isShowResize: boolean = true;
   @Input() isShowUpload: boolean = true;
   @Input() isShowExport: boolean = true;
   @Input() isShowCreate: boolean = true;
