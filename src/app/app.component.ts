@@ -136,6 +136,12 @@ export class AppComponent implements OnDestroy {
         icon: icReceipt,
         route: '/invoice'
       },
+      {
+        type: 'link',
+        label: 'File attachment',
+        icon: icReceipt,
+        route: '/file'
+      },
       // {
       //   type: 'link',
       //   label: 'Guides',

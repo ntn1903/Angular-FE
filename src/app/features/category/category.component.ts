@@ -8,6 +8,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { PopupCreateUpdateCategoryComponent } from './popup-create-update-category/popup-create-update-category.component';
 import { BaseService } from 'src/app/base/base.service';
 import { DatePipe } from '@angular/common';
+import * as XLSX from 'xlsx';
+import { FileAttachmentApiService } from '../file-attachment/file-attachment-api.service';
+import { CreateUpdateFileAttachment } from 'src/app/models/file-attachment/create-update-file-attachment.model';
+import { ResponseModel } from 'src/app/models/response-model.model';
+
 
 @Component({
   selector: 'vex-category',
@@ -32,7 +37,8 @@ export class CategoryComponent extends BaseService implements OnInit {
   constructor(
     private dialog: MatDialog,
     private categoryApiService: CategoryApiService,
-    private datePipe : DatePipe,
+    private datePipe: DatePipe,
+    private fileAttachmentApiService: FileAttachmentApiService,
   ) {
     super();
   }
@@ -51,6 +57,7 @@ export class CategoryComponent extends BaseService implements OnInit {
       .open(PopupCreateUpdateCategoryComponent,
         {
           data: this.isUndefined(category) ? {} : category,
+          autoFocus: false,
         }
       )
       .afterClosed().subscribe(updatedCategory => {
@@ -64,9 +71,50 @@ export class CategoryComponent extends BaseService implements OnInit {
     });
   }
 
-  onExportCategory(){
+  onExportCategory() {
     const fileName = this.datePipe.transform(new Date(), "YYYYMMdd") + '_Category'
     this.categoryApiService.exportExcel(fileName);
+  }
+
+  fileUploaded: File;
+  onUploadCategory(event: any) {
+    if (event.target.files.length == 0) return;
+    // this.dataUpload.data = [];
+    const file = event.target.files[0];
+
+    const fileReader1 = new FileReader();
+    fileReader1.readAsDataURL(file);
+
+    const fileReader2 = new FileReader();
+    fileReader2.readAsArrayBuffer(file);
+
+    if (event.target.files && file) {
+      fileReader1.onload = (e: any) => {
+        const input: CreateUpdateFileAttachment = {
+          // fileName: file.name.replace('.xlsx', ''),
+          // fileType: fileReader1.result.toString().split(/[:,;]/)[1],
+          fileName: this.getFileName(file),
+          fileType: this.getFileType(file),
+          fileData: fileReader1.result.toString().split(/[:,;]/)[3]
+        }
+
+        this.fileAttachmentApiService.create(input).subscribe((res: ResponseModel) => {
+          if (res.isSuccess){
+            fileReader2.onload = (e: any) => {
+              const data = new Uint8Array(e.target.result);
+              const workbook = XLSX.read(data, { type: 'array' });
+              const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+              const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+              // jsonData.slice(0).map((m: any) => {
+              //   this.dataUpload.data.push({ name: m[0], description: m[1], id: 0, createdAt: null, creatorId: null });
+              // });
+              // this.dataUpload.data.shift();
+              // console.log(this.dataUpload)
+            }
+          }
+        })
+      }
+    }
   }
 
   onDeleteCategories(categories: Category[]) {

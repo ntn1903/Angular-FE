@@ -1,0 +1,19 @@
+<wms-table 
+    [columns]="columns" 
+    [data]="fileAttachments"
+    [isShowCreate]="false"
+    [isShowExport]="false"
+    [isShowUpload]="false"
+    [isActionView]="false"
+    [isActionEdit]="false"
+
+    (onDelete)="onDeleteFile($event)"
+    (onDeleteSelected)="onDeleteFiles($event)"
+></wms-table>
+<!-- 
+    (onCreate)="onCreateUpdateCategory($event)"
+    (onUpdate)="onCreateUpdateCategory($event)"
+    (onDelete)="onDeleteCategory($event)"
+    (onUpload)="onUploadCategory($event)"
+    (onExport)="onExportCategory()"
+    (onDeleteSelected)="onDeleteCategories($event)"-->

@@ -27,7 +27,6 @@ export class PopupCreateUpdateCategoryComponent extends BaseService implements O
     public dialogRef: MatDialogRef<PopupCreateUpdateCategoryComponent>,
     private apiCategory: CategoryApiService,
     private datePipe: DatePipe,
-    // private snackbar: MatSnackBar,
   ) {
     super();
     this.receivedData = new Category(this.receivedData);

@@ -27,6 +27,7 @@ import icMoreVert from '@iconify/icons-ic/twotone-more-vert';
 import icClose from '@iconify/icons-ic/twotone-close';
 import icPrint from '@iconify/icons-ic/twotone-print';
 import icDownload from '@iconify/icons-ic/twotone-cloud-download';
+import icUpload from '@iconify/icons-ic/twotone-cloud-upload';
 import icPerson from '@iconify/icons-ic/twotone-person';
 import icMyLocation from '@iconify/icons-ic/twotone-my-location';
 import icLocationCity from '@iconify/icons-ic/twotone-location-city';
@@ -74,6 +75,7 @@ export class BaseService {
   icClose = icClose;
   icPrint = icPrint;
   icDownload = icDownload;
+  icUpload = icUpload;
   icPerson = icPerson;
   icMyLocation = icMyLocation;
   icLocationCity = icLocationCity;
@@ -112,6 +114,18 @@ export class BaseService {
   //   $link.setAttribute('download', (new Date().toISOString().slice(0, 10) + '_' + file.fileName));
   //   $link.click();
   // }
+
+  getFileName(file: any) {
+    let fileName = file?.name;
+    fileName = fileName.replace(/.xlsx|.xls|.txt|.pdf|.jpg|.png|.docx|.doc/g, "");
+    fileName = fileName.replace(/.XLSX|.XLS|.TXT|.PDF|.JPG|.PNG|.DOCX|.DOC/g, "");
+    return fileName;
+  }
+
+  getFileType(file: any) {
+    let tmp = file?.name.split('.');
+    return tmp[tmp.length - 1].toLowerCase();
+  }
 
   toEnglish(str: string) {
     str = str.toLowerCase();

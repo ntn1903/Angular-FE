@@ -81,6 +81,10 @@ export const routes: VexRoutes = [
         path: 'guides',
         loadChildren: () => import('./features/guides/guides.module').then(m => m.GuidesModule)
       },
+      {
+        path: 'file',
+        loadChildren: () => import('../app/features/file-attachment/file-attachment.module').then(m => m.FileAttachmentModule),
+      },
 
 
 

@@ -32,21 +32,29 @@ import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.compone
 export class TableComponent extends BaseService implements OnInit, AfterViewInit, OnChanges {
   @Input() columns: TableColumn<any>[] = [];
   @Input() data: any[] = [];
+
   @Input() isShowFilterColumns: boolean = true;
+  @Input() isShowUpload: boolean = true;
+  @Input() isShowExport: boolean = true;
+  @Input() isShowCreate: boolean = true;
+
+  @Input() isActionView: boolean = true;
+  @Input() isActionEdit: boolean = true;
+  @Input() isActionDelete: boolean = true;
+
+  @Input() acceptType: string = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel';
 
   @Output() onCreate = new EventEmitter<any>();
   @Output() onUpdate = new EventEmitter<any>();
   @Output() onDetail = new EventEmitter<any>();
   @Output() onDelete = new EventEmitter<any>();
+  @Output() onUpload = new EventEmitter<any>();
   @Output() onExport = new EventEmitter<any>();
   @Output() onDeleteSelected = new EventEmitter<any>();
 
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-
-  // subject$: ReplaySubject<any[]> = new ReplaySubject<any[]>(1);
-  // data$: Observable<any[]> = this.subject$.asObservable();
 
   dataSource: MatTableDataSource<any>;
   searchValue: string = "";
@@ -69,6 +77,7 @@ export class TableComponent extends BaseService implements OnInit, AfterViewInit
     if (changes['data']) {
       this.dataSource = new MatTableDataSource(this.data as any[]);
       this.dataSource.paginator = this.paginator;
+      this.selection.clear();
     }
   }
 

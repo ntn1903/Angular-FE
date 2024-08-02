@@ -13,13 +13,17 @@
 <mat-divider class="-mx-6 text-border"></mat-divider>
 
 <mat-dialog-content fxLayout="column">
-    <div class="flex flex-col sm:flex-row" fxLayoutGap="20px">
-        <wms-input [label]="'Name'" [(ngModel)]="receivedData.name" [icon]="icAdd"></wms-input>
-        <wms-input [label]="'Description'" [(ngModel)]="receivedData.description" [icon]="icAdd"></wms-input>
+    <div class="flex flex-row" fxLayoutGap="20px" *ngIf="mode==2">
+        <wms-input [label]="'Id'" [(ngModel)]="receivedData.id" [icon]="icAdd" disabled></wms-input>
+        <wms-date-picker [label]="'Created At'" [(ngModel)]="receivedData.createdAt" disabled></wms-date-picker>
     </div>
-    <!-- <div class="flex flex-col sm:flex-row" fxLayoutGap="20px">
-        <wms-date-picker [label]="'Create At'" [(ngModel)]="receivedData.createdAt"></wms-date-picker>
-    </div> -->
+    <div class="flex-row" fxLayoutGap="20px">
+        <wms-input [label]="'Name'" [(ngModel)]="receivedData.name" [icon]="icAdd"></wms-input>
+    </div>
+
+    <div class="flex-row" fxLayoutGap="20px">
+        <wms-input  [label]="'Description'" [(ngModel)]="receivedData.description" [icon]="icAdd"></wms-input>
+    </div>
 
 </mat-dialog-content>
 

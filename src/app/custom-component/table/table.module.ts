@@ -59,7 +59,6 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/material/form-field";
         MatRadioModule,
         MatDividerModule,
         SecondaryToolbarModule,
-        LayoutModule
     ],
     exports: [TableComponent, TransformDataTable],
     providers: [
