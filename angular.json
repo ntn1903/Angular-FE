@@ -15,7 +15,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "vex",
+      "prefix": "wms",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

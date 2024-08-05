@@ -1,0 +1,29 @@
+<!-- <mat-form-field color="primary">
+  <mat-label *ngIf="title">{{ title }} </mat-label>
+  <input [formControl]="searchCtrl" [matAutocomplete]="auto" matInput>
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let state of data" [value]="state.name">
+      <img [src]="state.flag" class="align-middle mr-4 shadow-6" height="25">
+      <span class="body-1">{{ state.name }}</span>
+      <span class="text-hint"> | </span>
+      <span class="caption text-secondary">Population: {{ state.population }}</span>
+    </mat-option>
+  </mat-autocomplete>
+
+  <button class="text-secondary" mat-icon-button matSuffix type="button">
+    <mat-icon [icIcon]="icArrowDropDown"></mat-icon>
+  </button>
+
+  <mat-hint>Add this hint for a better UX!</mat-hint>
+</mat-form-field> -->
+
+<mat-form-field>
+  <mat-label *ngIf="title">{{ title }} </mat-label>
+  <mat-select [(ngModel)]="value" (focusout)="onFocusOut($event)" [required]="required" [disabled]="disabled" class="my-panel"
+      [multiple]="multiple" [errorStateMatcher]="confirmValidParentMatcher" disableOptionCentering>
+      <mat-option *ngIf="isClear">{{ clearText || '' }}</mat-option>
+      <mat-option *ngFor="let item of data" [value]="item.id" (click)="checkedUncheckedPerItem(item)">
+          {{ item.name }}</mat-option>
+  </mat-select>
+  <mat-icon [icIcon]="icon" class="mr-3" matPrefix></mat-icon>
+</mat-form-field>

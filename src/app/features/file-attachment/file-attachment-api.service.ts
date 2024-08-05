@@ -18,12 +18,12 @@ export class FileAttachmentApiService {
     });
   }
 
-  create(category: CreateUpdateFileAttachment): Observable<any> {
-    return this.http.post<any>(`${environment.apiUrl}/${this.url}`, category);
+  create(file: CreateUpdateFileAttachment): Observable<any> {
+    return this.http.post<any>(`${environment.apiUrl}/${this.url}`, file);
   }
 
-  update(category: CreateUpdateFileAttachment): Observable<any> {
-    return this.http.put<any>(`${environment.apiUrl}/${this.url}`, category);
+  update(file: CreateUpdateFileAttachment): Observable<any> {
+    return this.http.put<any>(`${environment.apiUrl}/${this.url}`, file);
   }
 
   delete(id: number): Observable<any> {

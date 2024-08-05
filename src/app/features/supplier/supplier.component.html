@@ -1,1 +1,10 @@
-<p>supplier works!</p>
+<wms-table 
+    [columns]="columns" 
+    [data]="suppliers"
+    (onCreate)="onCreateUpdateSupplier($event)"
+    (onUpdate)="onCreateUpdateSupplier($event)"
+    (onDelete)="onDeleteSupplier($event)"
+    (onDeleteSelected)="onDeleteSuppliers($event)"
+    (onUpload)="onUploadSupplier($event)"
+    (onExport)="onExportSupplier()"
+></wms-table>

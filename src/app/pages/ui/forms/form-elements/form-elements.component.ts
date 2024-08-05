@@ -24,11 +24,9 @@ export interface CountryState {
   templateUrl: './form-elements.component.html',
   styleUrls: ['./form-elements.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    stagger60ms,
-    fadeInUp400ms
-  ]
+  animations: [stagger60ms, fadeInUp400ms]
 })
+
 export class FormElementsComponent implements OnInit {
 
   selectCtrl: FormControl = new FormControl();

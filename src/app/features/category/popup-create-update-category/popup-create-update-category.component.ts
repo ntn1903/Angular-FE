@@ -23,7 +23,7 @@ export class PopupCreateUpdateCategoryComponent extends BaseService implements O
   buttonLabel: string = '';
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public receivedData: any,
+    @Inject(MAT_DIALOG_DATA) public receivedData: Category,
     public dialogRef: MatDialogRef<PopupCreateUpdateCategoryComponent>,
     private apiCategory: CategoryApiService,
     private datePipe: DatePipe,

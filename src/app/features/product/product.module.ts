@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { VexRoutes } from 'src/@vex/interfaces/vex-route.interface';
 import { ProductComponent } from './product.component';
 import { RouterModule } from '@angular/router';
@@ -29,6 +29,8 @@ import { SecondaryToolbarModule } from 'src/@vex/components/secondary-toolbar/se
 import { TableModule } from 'src/app/custom-component/table/table.module';
 import { InputModule } from 'src/app/custom-component/input/input.module';
 import { AuthGuardService } from 'src/app/base/guard';
+import { SelectModule } from 'src/app/custom-component/select/select.module';
+import { DatePickerModule } from 'src/app/custom-component/date-picker/date-picker.module';
 
 const routes: VexRoutes = [
   {
@@ -67,6 +69,9 @@ const routes: VexRoutes = [
     SecondaryToolbarModule,
     TableModule,
     InputModule,
+    SelectModule,
+    DatePickerModule
   ],
+  providers:[DatePipe]
 })
 export class ProductModule { }

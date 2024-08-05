@@ -34,6 +34,7 @@ import icLocationCity from '@iconify/icons-ic/twotone-location-city';
 import icEditLocation from '@iconify/icons-ic/twotone-edit-location';
 import icPageView from '@iconify/icons-ic/pageview';
 import icInfo from '@iconify/icons-ic/twotone-info';
+import icLock from '@iconify/icons-ic/twotone-lock';
 import icStorage from '@iconify/icons-ic/storage';
 import icBusiness from '@iconify/icons-ic/twotone-business';
 import icChevronLeft from '@iconify/icons-ic/twotone-chevron-left';
@@ -87,6 +88,7 @@ export class BaseService {
   icChevronLeft = icChevronLeft;
   icChevronRight = icChevronRight;
   icHome = icHome;
+  icLock = icLock;
 
   constructor() { }
 

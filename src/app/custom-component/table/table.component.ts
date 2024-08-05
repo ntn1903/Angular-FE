@@ -8,7 +8,6 @@ import { AppConsts } from 'src/app/base/app.contanst';
 import { BaseService } from 'src/app/base/base.service';
 import { FormControl } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
-import { Product } from 'src/app/features/product/product.component';
 import { fadeInUp400ms } from 'src/@vex/animations/fade-in-up.animation';
 import { stagger40ms } from 'src/@vex/animations/stagger.animation';
 import { TableColumn } from 'src/@vex/interfaces/table-column.interface';
@@ -142,11 +141,11 @@ export class TableComponent extends BaseService implements OnInit, AfterViewInit
       this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
-  onLabelChange(change: MatSelectChange, row: Product) {
-    // const index = this.products.findIndex(c => c === row);
-    // this.products[index].labels = change.value;
-    // this.subject$.next(this.products);
-  }
+  // onLabelChange(change: MatSelectChange, row: Product) {
+  //   // const index = this.products.findIndex(c => c === row);
+  //   // this.products[index].labels = change.value;
+  //   // this.subject$.next(this.products);
+  // }
 
 
   /////////////////////////////////////

@@ -1,0 +1,52 @@
+<div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
+    <h5 class="headline m-0" fxFlex="auto">{{dialogLabel + ' supplier' }}</h5>
+
+    <button class="text-secondary" mat-dialog-close mat-icon-button>
+        <mat-icon [icIcon]="icClose"></mat-icon>
+    </button>
+</div>
+
+<mat-divider class="-mx-6 text-border"></mat-divider>
+
+<mat-dialog-content fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="space-between stretch"  fxLayoutGap="20px" *ngIf="mode==2">
+        <wms-input fxFlex="50" [label]="'Id'" [(ngModel)]="receivedData.id" [icon]="icLock" readonly></wms-input>
+        <wms-date-picker fxFlex [label]="'Created At'" [(ngModel)]="receivedData.createdAt" disabled></wms-date-picker>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between stretch"  fxLayoutGap="20px">
+        <wms-input fxFlex="50" [label]="'Name'" [(ngModel)]="receivedData.name" [icon]="icPerson"></wms-input>
+        <wms-input fxFlex [label]="'Phone'" [(ngModel)]="receivedData.phone" [icon]="icPhone"></wms-input>
+    </div>
+
+    <div class="flex-row" fxLayoutGap="20px">
+        <wms-input [label]="'Address'" [(ngModel)]="receivedData.address" [icon]="icEditLocation"></wms-input>
+    </div>
+
+    <div class="flex-row" fxLayoutGap="20px">
+        <wms-input  [label]="'Description'" [(ngModel)]="receivedData.description" [icon]="icDescription"></wms-input>
+    </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>CANCEL</button>
+    <button color="primary" mat-button (click)="createOrUpdateSupplier()">{{dialogLabel | uppercase }}</button>
+</mat-dialog-actions>
+
+<mat-menu #settingsMenu="matMenu" xPosition="before" yPosition="below">
+    <button mat-menu-item>
+        <mat-icon [icIcon]="icPrint"></mat-icon>
+        <span>Print</span>
+    </button>
+
+    <button mat-menu-item>
+        <mat-icon [icIcon]="icDownload"></mat-icon>
+        <span>Export</span>
+    </button>
+
+    <button mat-menu-item>
+        <mat-icon [icIcon]="icDelete"></mat-icon>
+        <span>Delete</span>
+    </button>
+</mat-menu>

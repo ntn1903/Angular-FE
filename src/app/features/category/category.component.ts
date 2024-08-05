@@ -93,13 +93,17 @@ export class CategoryComponent extends BaseService implements OnInit {
         const input: CreateUpdateFileAttachment = {
           // fileName: file.name.replace('.xlsx', ''),
           // fileType: fileReader1.result.toString().split(/[:,;]/)[1],
+          id: 0,
           fileName: this.getFileName(file),
           fileType: this.getFileType(file),
-          fileData: fileReader1.result.toString().split(/[:,;]/)[3]
+          fileData: fileReader1.result.toString().split(/[:,;]/)[3],
+          createdAt: undefined,
+          creatorId: '',
+          description: ''
         }
 
         this.fileAttachmentApiService.create(input).subscribe((res: ResponseModel) => {
-          if (res.isSuccess){
+          if (res.isSuccess) {
             fileReader2.onload = (e: any) => {
               const data = new Uint8Array(e.target.result);
               const workbook = XLSX.read(data, { type: 'array' });

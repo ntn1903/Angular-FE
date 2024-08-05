@@ -1,8 +1,8 @@
 <wms-table 
     [columns]="columns" 
     [data]="products"
-    (onCreate)="onCreate()"
-    (onUpdate)="onUpdate($event)"
-    (onDetail)="onDetail($event)"
-    (onDelete)="onDelete($event)"
+    (onCreate)="onCreateUpdateProduct($event)"
+    (onUpdate)="onCreateUpdateProduct($event)"
+    (onDelete)="onDeleteProduct($event)"
+    (onDeleteSelected)="onDeleteProducts($event)"
 ></wms-table>
