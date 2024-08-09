@@ -58,7 +58,7 @@ export class DashboardComponent extends BaseService implements OnInit {
     },
     {
       name: 'NTN',
-      data: [5, 21, 42, 70, 41, 20, 35, 50, 10, 15, 30, 50].map(m => m*5)
+      data: [5, 21, 42, 70, 41, 20, 35, 50, 10, 15, 30, 50].map(m => m * 5)
     },
   ];
 

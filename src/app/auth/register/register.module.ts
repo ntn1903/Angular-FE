@@ -12,6 +12,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { IconModule } from '@visurel/iconify-angular';
 import { RouterModule, Routes } from '@angular/router';
 import { QuicklinkModule } from 'ngx-quicklink';
+import { InputModule } from 'src/app/custom-component/input/input.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const routes: Routes = [
   {
@@ -32,7 +34,10 @@ const routes: Routes = [
     MatButtonModule,
     MatTooltipModule,
     MatCheckboxModule,
-    IconModule
+    IconModule,
+    MatSnackBarModule,
+
+    InputModule,
   ],
   exports: [RouterModule, QuicklinkModule]
 })

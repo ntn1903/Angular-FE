@@ -7,6 +7,10 @@ import { AuthGuardService } from './base/guard';
 
 export const routes: VexRoutes = [
   {
+    path: '',
+    loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule),
+  },
+  {
     path: 'login',
     loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule),
   },
@@ -207,7 +211,7 @@ export const routes: VexRoutes = [
     preloadingStrategy: QuicklinkStrategy,
     scrollPositionRestoration: 'enabled',
     relativeLinkResolution: 'corrected',
-    anchorScrolling: 'enabled'
+    anchorScrolling: 'enabled',
   })],
   exports: [RouterModule, QuicklinkModule]
 })

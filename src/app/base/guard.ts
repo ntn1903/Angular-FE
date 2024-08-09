@@ -1,18 +1,12 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
-import { BaseService } from './base.service';
-import { LoginService } from '../auth/login/login.service';
+import { CanActivate } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
 })
-export class AuthGuardService extends BaseService implements CanActivate {
+export class AuthGuardService implements CanActivate {
 
-    constructor(
-    ) {
-        super();
-    }
+    constructor() { }
 
     canActivate(): boolean {
         return localStorage.getItem('token') != null;

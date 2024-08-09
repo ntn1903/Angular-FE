@@ -3,8 +3,8 @@
     <input matInput [type]="type" [(ngModel)]="value" [required]="required" [disabled]="disabled" [readonly]="readonly"
         [maxlength]="maxlength" [placeholder]="placeholder" [name]="name" [ngClass]="type=='number'? 'text-right': ''"
         ngDefaultControl>
-        <!-- onClick="this.select();" -->
+    <!-- onClick="this.select();" -->
     <span *ngIf="matSuffix != ''" matSuffix>{{matSuffix}}</span>
-    <mat-icon [icIcon]="icon" class="mr-3" matPrefix></mat-icon>
+    <mat-icon *ngIf="icon!=null" [icIcon]="icon" class="mr-3" matPrefix></mat-icon>
     <mat-error>{{ (errorMsg || requiredMsg) }}</mat-error>
 </mat-form-field>
